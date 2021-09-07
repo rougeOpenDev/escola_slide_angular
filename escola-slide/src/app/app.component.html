@@ -7,6 +7,7 @@
 
     <button mat-button (click)="onClick()"
         matTooltip="Salve Skatista"
+        [routerLink]="['/home']"
         [matTooltipPosition]="tooltipPosition"
         [matTooltipShowDelay]="tooltipShowDelay"
         [matTooltipHideDelay]="tooltipHideDelay" >
@@ -14,14 +15,16 @@
     </button>
     <mat-divider [vertical]="true"></mat-divider>
     <button mat-button (click)="onClick()"
-          matTooltip="Meus Cursos"
-          [matTooltipPosition]="tooltipPosition"
-          [matTooltipShowDelay]="tooltipShowDelay"
-          [matTooltipHideDelay]="tooltipHideDelay" >
-        <mat-icon>note_add</mat-icon>
+        [routerLink]="['user/me/courses']"
+        matTooltip="Meus Cursos"
+        [matTooltipPosition]="tooltipPosition"
+        [matTooltipShowDelay]="tooltipShowDelay"
+        [matTooltipHideDelay]="tooltipHideDelay" >
+      <mat-icon>note_add</mat-icon>
     </button>
     <mat-divider [vertical]="true"></mat-divider>
     <button mat-button (click)="onClick()"
+        [routerLink]="['/courses']"
         matTooltip="Buscar Cursos"
         [matTooltipPosition]="tooltipPosition"
         [matTooltipShowDelay]="tooltipShowDelay"
@@ -29,18 +32,23 @@
       <mat-icon>find_in_page</mat-icon>
       <!--<mat-icon>search</mat-icon>-->
     </button>
+    <mat-divider [vertical]="true"></mat-divider>
+    <button mat-button (click)="onClick()"
+        [routerLink]="['/store']"
+        matTooltip="Loja"
+        [matTooltipPosition]="tooltipPosition"
+        [matTooltipShowDelay]="tooltipShowDelay"
+        [matTooltipHideDelay]="tooltipHideDelay" >
+      <mat-icon>store</mat-icon>
+    </button>
   </div>
   <div fxLayout="row" fxLayoutAlign="space-between" >
   </div>
   <div fxLayout="row" >
 
     <mat-menu #menu="matMenu" class="menuPerfilLateral">
-      <button mat-menu-item [routerLink]="['/debug']">
+      <button mat-menu-item [routerLink]="['/user/me']">
         <span>Preferências</span>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item>
-        <span>Sair</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="sair()"
@@ -54,6 +62,5 @@
     </mat-menu>
   </div>
 </mat-toolbar>
-
 
 <router-outlet></router-outlet>

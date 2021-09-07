@@ -20,12 +20,18 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { StoreComponent } from './components/store/store.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesListComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    UserDashboardComponent,
+    StoreComponent,
+    UserComponent
   ],
   imports: [
     FormsModule,

@@ -1,8 +1,8 @@
-<mat-toolbar
->
+<mat-toolbar color="primary" >
+
   <span>Escola de Slide</span>
 
-  <div fxLayout="column" fxLayoutAlign="center center" >
+  <div fxLayout="row" fxLayoutAlign="center center" >
     <mat-divider [vertical]="true"></mat-divider>
 
     <button mat-button (click)="onClick()"
@@ -42,12 +42,17 @@
       <mat-icon>store</mat-icon>
     </button>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-between" >
-  </div>
+
+  <span class="example-spacer"></span>
+
   <div fxLayout="row" >
 
-    <mat-menu #menu="matMenu" class="menuPerfilLateral">
-      <button mat-menu-item [routerLink]="['/user/me']">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [yPosition]="menuPosition" color="primary" >
+      <button mat-menu-item [routerLink]="['/user/me']" >
+        <mat-icon>exit-to-app</mat-icon>
         <span>Preferências</span>
       </button>
       <mat-divider></mat-divider>
@@ -55,9 +60,9 @@
           matTooltip="Sair"
           [matTooltipPosition]="tooltipPosition"
           [matTooltipShowDelay]="tooltipShowDelay"
-          [matTooltipHideDelay]="tooltipHideDelay">
-        <span>Sair</span>
+          [matTooltipHideDelay]="tooltipHideDelay" >
         <mat-icon>exit-to-app</mat-icon>
+        <span>Sair</span>
       </button>
     </mat-menu>
   </div>

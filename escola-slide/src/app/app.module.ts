@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
@@ -44,6 +45,7 @@ import { UserComponent } from './components/user/user.component';
 
     MatMenuModule,
     MatButtonModule,
+    MatDividerModule,
     MatToolbarModule,
     MatTooltipModule,
     MatCardModule,

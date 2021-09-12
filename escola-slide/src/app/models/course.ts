@@ -4,5 +4,5 @@ export interface Course {
   label: string,
   description: string,
   tags: string[],
-  srcImg?: string
+  imgSrc?: string
 }

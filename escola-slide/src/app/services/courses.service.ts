@@ -11,7 +11,7 @@ import { Course } from 'src/app/models/course';
 })
 export class CoursesService {
 
-  private COURSE_BASE_URL = 'https://api.jsonbin.io/v3/b/6082274da2213a0c14294edf/latest';
+  private COURSE_BASE_URL = 'https://api.jsonbin.io/v3/b/613e7d6b9548541c29b0c551/latest';
 
   constructor(
     private http: HttpClient) { }

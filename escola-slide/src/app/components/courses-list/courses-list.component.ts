@@ -9,9 +9,38 @@ export class CoursesListComponent implements OnInit {
 
   @Input() isReadOnly = true;
 
-  constructor() { }
+  private _coursesList: any[];
 
-  ngOnInit(): void {
+  constructor() {
+
+    this._coursesList = [];
   }
 
+  ngOnInit(): void {
+
+    this._coursesList = [{
+
+      title: 'Course 1',
+      desc: 'Douse 1 of 5',
+      prof: 'Cabeleira',
+      img: ''
+    },{
+
+      title: 'Course 2',
+      desc: 'Douse 2 of 5',
+      prof: 'Cabeleira',
+      img: ''
+    },{
+
+      title: 'Course 2',
+      desc: 'Douse 2 of 5',
+      prof: 'Cabeleira',
+      img: ''
+    }];
+  }
+
+  get coursesList() {
+
+    return this._coursesList;
+  }
 }

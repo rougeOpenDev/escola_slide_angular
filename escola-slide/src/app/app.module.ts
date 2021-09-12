@@ -52,6 +52,7 @@ import { UserComponent } from './components/user/user.component';
     MatInputModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
     MatSidenavModule
   ],
   providers: [],

@@ -1,78 +1,12 @@
-<mat-toolbar color="primary" >
+<div fxLayout="column" >
 
-  <span>Escola de Slide</span>
+  <mat-toolbar class="fixed-header" color="primary" >
 
-  <div fxLayoutAlign="center center" fxHide.xs="true" >
+    <span>Escola de Slide</span>
 
-    <button class="toolbar-btn" mat-button (click)="onClick()"
-        matTooltip="Salve Skatista"
-        [routerLink]="['/home']"
-        [matTooltipPosition]="tooltipPosition"
-        [matTooltipShowDelay]="tooltipShowDelay"
-        [matTooltipHideDelay]="tooltipHideDelay" >
-      <mat-icon>home</mat-icon>
-    </button>
-    <button class="toolbar-btn" mat-button (click)="onClick()"
-        [routerLink]="['user/me/courses']"
-        matTooltip="Meus Cursos"
-        [matTooltipPosition]="tooltipPosition"
-        [matTooltipShowDelay]="tooltipShowDelay"
-        [matTooltipHideDelay]="tooltipHideDelay" >
-      <mat-icon>note_add</mat-icon>
-    </button>
-    <button class="toolbar-btn" mat-button (click)="onClick()"
-        [routerLink]="['/courses']"
-        matTooltip="Buscar Cursos"
-        [matTooltipPosition]="tooltipPosition"
-        [matTooltipShowDelay]="tooltipShowDelay"
-        [matTooltipHideDelay]="tooltipHideDelay" >
-      <mat-icon>find_in_page</mat-icon>
-    </button>
-    <button class="toolbar-btn" mat-button (click)="onClick()"
-        [routerLink]="['/store']"
-        matTooltip="Loja"
-        [matTooltipPosition]="tooltipPosition"
-        [matTooltipShowDelay]="tooltipShowDelay"
-        [matTooltipHideDelay]="tooltipHideDelay" >
-      <mat-icon>store</mat-icon>
-    </button>
-  </div>
+    <div fxLayoutAlign="center center" fxHide.xs="true" >
 
-  <span class="example-spacer"></span>
-
-  <div class="mat-toolbar mat-primary" >
-
-    <button mat-icon-button [matMenuTriggerFor]="menu" >
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu class="mat-toolbar mat-primary" #menu="matMenu" [yPosition]="menuPosition" color="primary" >
-      <button class="sidenav-menu-btn" mat-menu-item [routerLink]="['/user/me']"
-          matTooltip="Sair"
-          [matTooltipPosition]="tooltipPosition"
-          [matTooltipShowDelay]="tooltipShowDelay"
-          [matTooltipHideDelay]="tooltipHideDelay"  >
-        <mat-icon class="toolbar-btn">settings</mat-icon>
-        <span>Preferências</span>
-      </button>
-      <button class="sidenav-menu-btn" mat-menu-item (click)="sair()"
-            matTooltip="Sair"
-            [matTooltipPosition]="tooltipPosition"
-            [matTooltipShowDelay]="tooltipShowDelay"
-            [matTooltipHideDelay]="tooltipHideDelay" >
-        <mat-icon class="toolbar-btn">logout</mat-icon>
-        <span>Sair</span>
-      </button>
-    </mat-menu>
-
-  </div>
-</mat-toolbar>
-
-<mat-sidenav-container fxFlexFill class="example-container">
-
-  <mat-sidenav class="mat-toolbar mat-primary" color="primary" #sidenav mode="side" opened="true" fxShow.xs="true" fxHide="true">
-
-    <div fxLayoutAlign="center center" fxLayout="column" >
-      <button class="sidenav-btn" mat-button (click)="onClick()"
+      <button class="toolbar-btn" mat-button (click)="onClick()"
           matTooltip="Salve Skatista"
           [routerLink]="['/home']"
           [matTooltipPosition]="tooltipPosition"
@@ -80,7 +14,7 @@
           [matTooltipHideDelay]="tooltipHideDelay" >
         <mat-icon>home</mat-icon>
       </button>
-      <button class="sidenav-btn" mat-button (click)="onClick()"
+      <button class="toolbar-btn" mat-button (click)="onClick()"
           [routerLink]="['user/me/courses']"
           matTooltip="Meus Cursos"
           [matTooltipPosition]="tooltipPosition"
@@ -88,7 +22,7 @@
           [matTooltipHideDelay]="tooltipHideDelay" >
         <mat-icon>note_add</mat-icon>
       </button>
-      <button class="sidenav-btn" mat-button (click)="onClick()"
+      <button class="toolbar-btn" mat-button (click)="onClick()"
           [routerLink]="['/courses']"
           matTooltip="Buscar Cursos"
           [matTooltipPosition]="tooltipPosition"
@@ -96,7 +30,7 @@
           [matTooltipHideDelay]="tooltipHideDelay" >
         <mat-icon>find_in_page</mat-icon>
       </button>
-      <button class="sidenav-btn" mat-button (click)="onClick()"
+      <button class="toolbar-btn" mat-button (click)="onClick()"
           [routerLink]="['/store']"
           matTooltip="Loja"
           [matTooltipPosition]="tooltipPosition"
@@ -106,11 +40,80 @@
       </button>
     </div>
 
-  </mat-sidenav>
-  <mat-sidenav-content fxFlexFill>
+    <span class="example-spacer"></span>
 
-    <router-outlet></router-outlet>
+    <div class="mat-toolbar mat-primary" >
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <button mat-icon-button [matMenuTriggerFor]="menu" >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu class="mat-toolbar mat-primary" #menu="matMenu" [yPosition]="menuPosition" color="primary" >
+        <button class="sidenav-menu-btn" mat-menu-item [routerLink]="['/user/me']"
+            matTooltip="Sair"
+            [matTooltipPosition]="tooltipPosition"
+            [matTooltipShowDelay]="tooltipShowDelay"
+            [matTooltipHideDelay]="tooltipHideDelay"  >
+          <mat-icon class="toolbar-btn">settings</mat-icon>
+          <span>Preferências</span>
+        </button>
+        <button class="sidenav-menu-btn" mat-menu-item (click)="sair()"
+              matTooltip="Sair"
+              [matTooltipPosition]="tooltipPosition"
+              [matTooltipShowDelay]="tooltipShowDelay"
+              [matTooltipHideDelay]="tooltipHideDelay" >
+          <mat-icon class="toolbar-btn">logout</mat-icon>
+          <span>Sair</span>
+        </button>
+      </mat-menu>
 
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill class="sidenav-without-toolbar"  >
+
+    <mat-sidenav class="mat-toolbar mat-primary" color="primary" #sidenav mode="side" opened="true" fxShow.xs="true" fxHide="true">
+
+      <div fxLayoutAlign="center center" fxLayout="column" >
+        <button class="sidenav-btn" mat-button (click)="onClick()"
+            matTooltip="Salve Skatista"
+            [routerLink]="['/home']"
+            [matTooltipPosition]="tooltipPosition"
+            [matTooltipShowDelay]="tooltipShowDelay"
+            [matTooltipHideDelay]="tooltipHideDelay" >
+          <mat-icon>home</mat-icon>
+        </button>
+        <button class="sidenav-btn" mat-button (click)="onClick()"
+            [routerLink]="['user/me/courses']"
+            matTooltip="Meus Cursos"
+            [matTooltipPosition]="tooltipPosition"
+            [matTooltipShowDelay]="tooltipShowDelay"
+            [matTooltipHideDelay]="tooltipHideDelay" >
+          <mat-icon>note_add</mat-icon>
+        </button>
+        <button class="sidenav-btn" mat-button (click)="onClick()"
+            [routerLink]="['/courses']"
+            matTooltip="Buscar Cursos"
+            [matTooltipPosition]="tooltipPosition"
+            [matTooltipShowDelay]="tooltipShowDelay"
+            [matTooltipHideDelay]="tooltipHideDelay" >
+          <mat-icon>find_in_page</mat-icon>
+        </button>
+        <button class="sidenav-btn" mat-button (click)="onClick()"
+            [routerLink]="['/store']"
+            matTooltip="Loja"
+            [matTooltipPosition]="tooltipPosition"
+            [matTooltipShowDelay]="tooltipShowDelay"
+            [matTooltipHideDelay]="tooltipHideDelay" >
+          <mat-icon>store</mat-icon>
+        </button>
+      </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content fxFlex >
+
+      <router-outlet ></router-outlet>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

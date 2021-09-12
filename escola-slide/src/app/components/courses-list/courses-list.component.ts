@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
+import { CoursesService } from 'src/app/services/courses.service';
+import { Course } from 'src/app/models/course';
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',
@@ -9,34 +11,46 @@ export class CoursesListComponent implements OnInit {
 
   @Input() isReadOnly = true;
 
-  private _coursesList: any[];
+  private _coursesList: Course[];
 
-  constructor() {
+  private _chipsSelectable: boolean;
+  private _chipsRemovable: boolean;
+  private _chipsMultiple: boolean;
+
+  constructor(private coursesService: CoursesService) {
 
     this._coursesList = [];
+
+    this._chipsSelectable = false;
+    this._chipsRemovable = false;
+    this._chipsMultiple = true;
   }
 
   ngOnInit(): void {
 
-    this._coursesList = [{
+    this.coursesService.getCousesList()
+      .then((list: any) => {
 
-      title: 'Course 1',
-      desc: 'Douse 1 of 5',
-      prof: 'Cabeleira',
-      img: ''
-    },{
+        if (list) {
 
-      title: 'Course 2',
-      desc: 'Douse 2 of 5',
-      prof: 'Cabeleira',
-      img: ''
-    },{
+          this._coursesList = list;
+        }
+      });
+  }
 
-      title: 'Course 2',
-      desc: 'Douse 2 of 5',
-      prof: 'Cabeleira',
-      img: ''
-    }];
+  get chipsSelectable() {
+
+    return this._chipsSelectable;
+  }
+
+  get chipsRemovable() {
+
+    return this._chipsRemovable;
+  }
+
+  get chipsMultiple() {
+
+    return this._chipsMultiple;
   }
 
   get coursesList() {

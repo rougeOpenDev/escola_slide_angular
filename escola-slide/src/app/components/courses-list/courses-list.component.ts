@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 import { CoursesService } from 'src/app/services/courses.service';
-import { Course } from 'src/app/models/course';
+import { Course } from 'src/app/models/course.model';
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',

@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
@@ -26,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'user/:user/courses',
-    component: CoursesListComponent,
+    component: UserCoursesListComponent,
   },
   {
     path: 'user/:user',

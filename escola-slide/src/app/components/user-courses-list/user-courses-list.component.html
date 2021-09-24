@@ -12,16 +12,18 @@
     </mat-card-header>
     <mat-card-content class="course-card-content" >
 
-      {{ course.description }}
+      {{ getClassesString(course) }}
 
-      <mat-chip-list class="course-card-footer" #chipList [multiple]="chipsMultiple" >
-        <mat-chip
-          *ngFor="let tag of course.tags"
-          [selectable]="chipsSelectable"
-          [removable]="chipsRemovable" >
-          {{ tag }}
-        </mat-chip>
-      </mat-chip-list>
+      <mat-slider
+        [disabled]="true"
+        [max]="course.status?.totalHours"
+        [step]="selectorStep"
+        [thumbLabel]="selectorThumbLabel"
+        [value]="course.status?.watchedHours" >
+      </mat-slider>
+
+      {{ course.status?.watchedHours }} h
+
 
     </mat-card-content>
     <mat-card-footer>

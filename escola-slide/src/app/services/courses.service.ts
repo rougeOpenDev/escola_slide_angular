@@ -4,26 +4,36 @@ import { Injectable } from '@angular/core';
 import { catchError, take} from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
-import { Course } from 'src/app/models/course';
+import { Course } from 'src/app/models/course.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
 
-  private COURSE_BASE_URL = 'https://api.jsonbin.io/v3/b/613e7d6b9548541c29b0c551/latest';
+  private COURSE_BASE_URL = 'https://api.jsonbin.io/v3/b/';
+  private COURSE_API_VERSION = '/latest';
+
+  private API_SECRET_KEY = '$2b$10$1ojsyDxXnZG1Fb.ugfJVZezMuAtc5clV.RmM4wJt08if7VaFuuGX.';
 
   constructor(
     private http: HttpClient) { }
 
+  createHeaders() {
+
+    return new HttpHeaders({
+
+      'X-Master-Key': this.API_SECRET_KEY
+    });
+  }
+
   getCousesList(): Promise<Course[]> {
 
-    const headers = new HttpHeaders({
+    const headers = this.createHeaders();
 
-      'X-Master-Key': '$2b$10$ZztOic8Zs2xHk4eCqEawROFVaxrM5xkOGI7VZS6/y0DeCjopp5scG'
-    });
+    const url = this.COURSE_BASE_URL + '614d395eaa02be1d444d9685' + this.COURSE_API_VERSION;
 
-    return this.http.get<any>(this.COURSE_BASE_URL, { headers: headers })
+    return this.http.get<any>(url, { headers: headers })
       .pipe(
         catchError(
           this.handleError<Course[]>('getCousesList', [])
@@ -33,6 +43,28 @@ export class CoursesService {
 
         if (result && result.record) {
 
+          return result.record as Course[];
+        }
+
+        throw new Error('No such element "record" on API result');
+      });
+  }
+
+  getUserCousesList(): Promise<Course[]> {
+
+    const headers = this.createHeaders();
+
+    const url = this.COURSE_BASE_URL + '614d3c589548541c29b751dc' + this.COURSE_API_VERSION;
+
+    return this.http.get<any>(url, { headers: headers })
+      .pipe(
+        catchError(
+          this.handleError<Course[]>('getUserCousesList', [])
+        ),
+        take(1)
+      ).toPromise().then(result => {
+
+        if (result && result.record) {
 
           return result.record as Course[];
         }

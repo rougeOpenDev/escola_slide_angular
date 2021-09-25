@@ -8,22 +8,39 @@
 
     <img class="course-card-img" mat-card-image src="{{ course.imgSrc }}" alt="Photo of couse description">
     <mat-card-header>
-      <mat-card-title>{{ course.label }}</mat-card-title>
+      <mat-card-title>
+
+        {{ course.label }}
+
+        <span class="example-spacer"></span>
+
+        <mat-icon
+            *ngIf="course.status?.completed"
+            matTooltip="Curso finalizado! Viva!!!"
+            color="accent"
+            mat-card-avatar >
+
+          celebration
+
+        </mat-icon>
+
+      </mat-card-title>
     </mat-card-header>
-    <mat-card-content class="course-card-content" >
+    <mat-card-content class="course-card-content" fxLayout="column" >
 
-      {{ getClassesString(course) }}
+      <span>
+        {{ getClassesString(course) }}
+      </span>
 
-      <mat-slider
-        [disabled]="true"
-        [max]="course.status?.totalHours"
-        [step]="selectorStep"
-        [thumbLabel]="selectorThumbLabel"
-        [value]="course.status?.watchedHours" >
-      </mat-slider>
+      <br/>
 
-      {{ course.status?.watchedHours }} h
+      <div>
 
+        <mat-progress-bar mode="determinate" [value]="valorProgressBarCourse(course)"></mat-progress-bar>
+
+        <span>{{ course.status?.watchedHours + ' de ' + course.status?.totalHours }} horas </span>
+
+      </div>
 
     </mat-card-content>
     <mat-card-footer>

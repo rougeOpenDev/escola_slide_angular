@@ -4,5 +4,8 @@ export interface Status {
   totalHours: number,
   attempedClasses: number,
   totalClasses: number,
-  completed: boolean
+  completed: boolean,
+
+  labelAttempedClasses?: string
+  labelWatchedHours?: number
 }

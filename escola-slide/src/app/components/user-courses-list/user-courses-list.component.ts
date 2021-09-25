@@ -41,14 +41,35 @@ export class UserCoursesListComponent implements OnInit {
       });
   }
 
+  valorProgressBarCourse(course: Course) {
+
+    if (course.status) {
+
+      if (!course.status.labelWatchedHours) {
+
+        course.status.labelWatchedHours = course.status.watchedHours / course.status.totalHours * 100
+      }
+
+      return course.status.labelWatchedHours;
+    }
+
+    return 0;
+  }
+
   getClassesString(course: Course) {
 
     if (course.status) {
 
-      return course.status.attempedClasses + ' / ' + course.status.totalClasses;
+      if (!course.status.labelAttempedClasses) {
+
+        const stringFinal = 'Aulas Completas: ';
+        course.status.labelAttempedClasses = stringFinal + course.status.attempedClasses + ' de ' + course.status.totalClasses;
+      }
+
+      return course.status.labelAttempedClasses;
     }
 
-    return '0 / 0';
+    return '';
   }
 
   get coursesList() {

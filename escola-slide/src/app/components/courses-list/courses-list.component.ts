@@ -28,7 +28,7 @@ export class CoursesListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.coursesService.getCousesList()
+    this.coursesService.getCoursesList()
       .then((list: any) => {
 
         if (list) {

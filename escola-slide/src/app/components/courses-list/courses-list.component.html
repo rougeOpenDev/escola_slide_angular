@@ -4,17 +4,17 @@
 
   <mat-card *ngFor="let course of coursesList" class="course-card"
       fxFlex.xs="100%"
-      fxFlex="calc(40% - 20px)" >
+      fxFlex="calc(40% - 20px)"
+      [routerLink]="['/courses/' + course.id]" >
 
-    <img class="course-card-img" mat-card-image src="{{ course.imgSrc }}" alt="Photo of couse description">
+    <img class="course-card-img" mat-card-image src="{{ course.imgSrc }}" alt="Photo of Course description">
     <mat-card-header>
       <mat-card-title>{{ course.label }}</mat-card-title>
+      <mat-card-subtitle>{{ course.description }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="course-card-content" >
 
-      {{ course.description }}
-
-      <mat-chip-list class="course-card-footer" #chipList [multiple]="chipsMultiple" >
+      <mat-chip-list #chipList [multiple]="chipsMultiple" >
         <mat-chip
           *ngFor="let tag of course.tags"
           [selectable]="chipsSelectable"
@@ -24,9 +24,6 @@
       </mat-chip-list>
 
     </mat-card-content>
-    <mat-card-footer>
-
-    </mat-card-footer>
 
   </mat-card>
 

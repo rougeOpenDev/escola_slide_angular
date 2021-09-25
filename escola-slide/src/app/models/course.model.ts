@@ -1,3 +1,4 @@
+import { CourseClass } from './course-class.model';
 import { Status } from './status.model';
 
 export interface Course {
@@ -7,5 +8,8 @@ export interface Course {
   description: string,
   tags: string[],
   imgSrc?: string,
-  status?: Status
+
+  signed?: boolean,
+  status?: Status,
+  classes?: CourseClass
 }

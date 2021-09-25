@@ -31,7 +31,7 @@ export class UserCoursesListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.coursesService.getUserCousesList()
+    this.coursesService.getUserCoursesList()
       .then((list: any) => {
 
         if (list) {

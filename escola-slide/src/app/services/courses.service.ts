@@ -16,6 +16,13 @@ export class CoursesService {
 
   private API_SECRET_KEY = '$2b$10$1ojsyDxXnZG1Fb.ugfJVZezMuAtc5clV.RmM4wJt08if7VaFuuGX.';
 
+  private JSONBIN_COURSE_DETAIL_2 = '614e8240aa02be1d444e425d';
+  private JSONBIN_USER_COURSE_DETAIL_2 = '614e80e5aa02be1d444e41ee';
+
+  private JSONBIN_USER_COURSES_LIST = '614d3c589548541c29b751dc';
+  private JSONBIN_COURSES_LIST = '614d395eaa02be1d444d9685';
+
+
   constructor(
     private http: HttpClient) { }
 
@@ -27,16 +34,39 @@ export class CoursesService {
     });
   }
 
-  getCousesList(): Promise<Course[]> {
+  getCourseDetails(courseId: string): Promise<Course> {
 
     const headers = this.createHeaders();
 
-    const url = this.COURSE_BASE_URL + '614d395eaa02be1d444d9685' + this.COURSE_API_VERSION;
+    const url = this.COURSE_BASE_URL + this.JSONBIN_COURSE_DETAIL_2 + this.COURSE_API_VERSION;
 
     return this.http.get<any>(url, { headers: headers })
       .pipe(
         catchError(
-          this.handleError<Course[]>('getCousesList', [])
+          this.handleError<Course[]>('getCourseDetails', [])
+        ),
+        take(1)
+      ).toPromise().then(result => {
+
+        if (result && result.record) {
+
+          return result.record as Course;
+        }
+
+        throw new Error('No such element "record" on API result');
+      });
+  }
+
+  getCoursesList(): Promise<Course[]> {
+
+    const headers = this.createHeaders();
+
+    const url = this.COURSE_BASE_URL + this.JSONBIN_COURSES_LIST + this.COURSE_API_VERSION;
+
+    return this.http.get<any>(url, { headers: headers })
+      .pipe(
+        catchError(
+          this.handleError<Course[]>('getCoursesList', [])
         ),
         take(1)
       ).toPromise().then(result => {
@@ -50,16 +80,16 @@ export class CoursesService {
       });
   }
 
-  getUserCousesList(): Promise<Course[]> {
+  getUserCoursesList(): Promise<Course[]> {
 
     const headers = this.createHeaders();
 
-    const url = this.COURSE_BASE_URL + '614d3c589548541c29b751dc' + this.COURSE_API_VERSION;
+    const url = this.COURSE_BASE_URL + this.JSONBIN_USER_COURSES_LIST + this.COURSE_API_VERSION;
 
     return this.http.get<any>(url, { headers: headers })
       .pipe(
         catchError(
-          this.handleError<Course[]>('getUserCousesList', [])
+          this.handleError<Course[]>('getUserCoursesList', [])
         ),
         take(1)
       ).toPromise().then(result => {

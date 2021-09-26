@@ -1,0 +1,58 @@
+<mat-drawer-container fxFlexFill hasBackdrop="true" >
+
+  <mat-drawer #drawer
+      mode="side"
+      fxFlex="80" >
+
+    <mat-list>
+      <div mat-subheader>Aulas</div>
+      <mat-list-item
+          *ngFor="let leason of course?.leasons"
+          (click)="watchCourseLeason(leason)" >
+
+        <mat-icon *ngIf="!leason.completed" mat-list-icon>radio_button_unchecked</mat-icon>
+        <mat-icon *ngIf="leason.completed" mat-list-icon>check_circle_outline</mat-icon>
+        <a
+            (click)="drawer.close() && watchCourseLeason(leason)"
+            matLine >
+          {{ leason.title }}
+        </a>
+      </mat-list-item>
+
+    </mat-list>
+
+  </mat-drawer>
+  <mat-drawer-content fxFlexFill fxLayoutGap="10px" >
+
+    <mat-card>
+      <div fxLayout="row"  fxLayoutAlign="start center" >
+        <button color="accent" mat-raised-button (click)="drawer.toggle()">
+          <mat-icon>
+            menu
+          </mat-icon>
+        </button>
+        <h3 class="current-leason-title" >
+          {{ currentLeason?.title }}
+        </h3>
+        <span class="example-spacer"></span>
+        <button color="accent" mat-raised-button (click)="completeClass(currentLeason)" >
+          Concluir e ir para próxima aula
+        </button>
+      </div>
+    </mat-card>
+
+    <mat-card #cardIframe fxFlexFill fxFlexAlign="center center" >
+
+      <youtube-player
+        fxFlexFill
+        #iframe
+        *ngIf="ytVideoId"
+        [videoId]="ytVideoId"
+        frameborder="0"
+        allowfullscreen >
+      </youtube-player>
+
+    </mat-card>
+
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,7 +1,7 @@
 <div fxFlexFill fxLayout="column" class="course-detail-full" >
 
-  <div fxFlex="30" fxLayout="row" fxLayout.xs="column" >
-    <mat-card class="card-item" fxFlex="30" >
+  <div fxFlex="40" fxLayout="row" fxLayout.xs="column" fxFlex.xs="100" >
+    <mat-card class="card-item" fxFlex="40" >
 
       <img class="course-card-img" mat-card-image src="{{ course?.imgSrc }}" alt="Photo of Course description">
 
@@ -9,10 +9,12 @@
     <mat-card class="card-item" fxFlex >
 
       <mat-card-header>
-        {{ course?.label }}
+        <b>
+          {{ course?.label }}
+        </b>
       </mat-card-header>
 
-      <mat-card-content fxLayout="column" >
+      <mat-card-content class="course-card-content" fxLayout="column" >
 
         <div fxLayout="row" >
             <mat-icon>class</mat-icon>
@@ -27,11 +29,9 @@
             </p>
         </div>
 
-        <br/>
-
         <mat-chip-list #chipList [multiple]="false" >
           <mat-chip
-            *ngFor="let tag of course.tags"
+            *ngFor="let tag of course?.tags"
             [selectable]="false"
             [removable]="false" >
             {{ tag }}
@@ -45,17 +45,16 @@
       <mat-card-actions align="end" >
 
         <button mat-raised-button
-            color="primary"
-            [routerLink]="['/user/me/courses/' + course.id]"
-            (click)="courseSignin(course)" >
-
-          <span *ngIf="course?.signed" >
-            Continuar Curso
-          </span>
-          <span *ngIf="!course?.signed" >
+              color="primary"
+              *ngIf="!course?.signed"
+              (click)="courseSignin(course)" >
             Inscrever-se
-          </span>
-
+        </button>
+        <button mat-raised-button
+            color="primary"
+            *ngIf="course?.signed"
+            [routerLink]="['/user/me/courses/' + course.id]" >
+          Continuar Curso
         </button>
 
       </mat-card-actions>
@@ -70,14 +69,14 @@
 
         <mat-list>
           <div mat-subheader>Aulas</div>
-          <mat-list-item disableRipple="true" *ngFor="let class of course?.classes">
+          <mat-list-item disableRipple="true" *ngFor="let leason of course?.leasons">
 
             <mat-icon mat-list-icon>play_circle</mat-icon>
             <div mat-line>
-              {{ class.title }}
+              {{ leason.title }}
             </div>
             <div mat-line>
-              {{ class.time }}
+              {{ leason.time }}
             </div>
 
           </mat-list-item>
@@ -87,7 +86,7 @@
       </mat-tab>
       <mat-tab label="Descrição" >
 
-        <p>
+        <p style="padding: 16px;" >
           {{ course.description }}
         </p>
 

@@ -17,7 +17,7 @@
 
       <mat-chip-list #chipList [multiple]="chipsMultiple" >
         <mat-chip
-          *ngFor="let tag of course.tags"
+          *ngFor="let tag of course?.tags"
           [selectable]="chipsSelectable"
           [removable]="chipsRemovable" >
           {{ tag }}

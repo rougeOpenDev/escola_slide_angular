@@ -1,4 +1,4 @@
-import { CourseClass } from './course-class.model';
+import { CourseLeason } from './course-leason.model';
 import { Status } from './status.model';
 
 export interface Course {
@@ -11,5 +11,5 @@ export interface Course {
 
   signed?: boolean,
   status?: Status,
-  classes?: CourseClass[]
+  leasons?: CourseLeason[]
 }

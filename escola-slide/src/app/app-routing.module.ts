@@ -1,11 +1,12 @@
-import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { StoreComponent } from './components/store/store.component';
+import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
+import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'user/:user/courses/:course',
-    component: UserCoursesListComponent,
+    component: UserCourseDetailsComponent,
   },
   {
     path: 'user/:user',

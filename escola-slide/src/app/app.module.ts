@@ -9,6 +9,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { YouTubePlayerModule } from '@angular/youtube-player';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -31,6 +33,7 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { StoreComponent } from './components/store/store.component';
 import { UserComponent } from './components/user/user.component';
+import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { UserComponent } from './components/user/user.component';
     UserDashboardComponent,
     UserCoursesListComponent,
     StoreComponent,
-    UserComponent
+    UserComponent,
+    UserCourseDetailsComponent
   ],
   imports: [
     FormsModule,
@@ -50,6 +54,8 @@ import { UserComponent } from './components/user/user.component';
     BrowserAnimationsModule,
 
     FlexLayoutModule,
+
+    YouTubePlayerModule,
 
     HttpClientModule,
     MatProgressBarModule,

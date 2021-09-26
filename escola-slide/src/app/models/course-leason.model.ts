@@ -1,4 +1,4 @@
-export interface CourseClass {
+export interface CourseLeason {
 
   title: string,
   description: string,

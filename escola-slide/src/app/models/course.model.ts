@@ -11,5 +11,5 @@ export interface Course {
 
   signed?: boolean,
   status?: Status,
-  classes?: CourseClass
+  classes?: CourseClass[]
 }

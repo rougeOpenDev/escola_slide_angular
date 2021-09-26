@@ -1,1 +1,98 @@
-<p>course-details works!</p>
+<div fxFlexFill fxLayout="column" class="course-detail-full" >
+
+  <div fxFlex="30" fxLayout="row" fxLayout.xs="column" >
+    <mat-card class="card-item" fxFlex="30" >
+
+      <img class="course-card-img" mat-card-image src="{{ course?.imgSrc }}" alt="Photo of Course description">
+
+    </mat-card>
+    <mat-card class="card-item" fxFlex >
+
+      <mat-card-header>
+        {{ course?.label }}
+      </mat-card-header>
+
+      <mat-card-content fxLayout="column" >
+
+        <div fxLayout="row" >
+            <mat-icon>class</mat-icon>
+            <p>
+              {{ course?.status?.totalClasses }} aulas
+            </p>
+        </div>
+        <div fxLayout="row" >
+            <mat-icon>timer</mat-icon>
+            <p>
+              {{ course?.status?.totalHours }} horas
+            </p>
+        </div>
+
+        <br/>
+
+        <mat-chip-list #chipList [multiple]="false" >
+          <mat-chip
+            *ngFor="let tag of course.tags"
+            [selectable]="false"
+            [removable]="false" >
+            {{ tag }}
+          </mat-chip>
+        </mat-chip-list>
+
+      </mat-card-content>
+
+      <mat-divider inset></mat-divider>
+
+      <mat-card-actions align="end" >
+
+        <button mat-raised-button
+            color="primary"
+            [routerLink]="['/user/me/courses/' + course.id]"
+            (click)="courseSignin(course)" >
+
+          <span *ngIf="course?.signed" >
+            Continuar Curso
+          </span>
+          <span *ngIf="!course?.signed" >
+            Inscrever-se
+          </span>
+
+        </button>
+
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
+
+  <mat-card class="card-item" fxFlexFill >
+
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" fxFlexFill >
+      <mat-tab label="Conteúdo" >
+
+        <mat-list>
+          <div mat-subheader>Aulas</div>
+          <mat-list-item disableRipple="true" *ngFor="let class of course?.classes">
+
+            <mat-icon mat-list-icon>play_circle</mat-icon>
+            <div mat-line>
+              {{ class.title }}
+            </div>
+            <div mat-line>
+              {{ class.time }}
+            </div>
+
+          </mat-list-item>
+
+        </mat-list>
+
+      </mat-tab>
+      <mat-tab label="Descrição" >
+
+        <p>
+          {{ course.description }}
+        </p>
+
+      </mat-tab>
+    </mat-tab-group>
+
+  </mat-card>
+</div>

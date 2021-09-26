@@ -30,6 +30,10 @@ const routes: Routes = [
     component: UserCoursesListComponent,
   },
   {
+    path: 'user/:user/courses/:course',
+    component: UserCoursesListComponent,
+  },
+  {
     path: 'user/:user',
     component: UserComponent,
   },

@@ -16,7 +16,9 @@ export class CoursesService {
 
   private API_SECRET_KEY = '$2b$10$1ojsyDxXnZG1Fb.ugfJVZezMuAtc5clV.RmM4wJt08if7VaFuuGX.';
 
-  private JSONBIN_COURSE_DETAIL_2 = '614e8240aa02be1d444e425d';
+  private JSONBIN_COURSE_DETAIL_1= '614e8240aa02be1d444e425d';
+  private JSONBIN_COURSE_DETAIL_2 = '614e80e5aa02be1d444e41ee';
+
   private JSONBIN_USER_COURSE_DETAIL_2 = '614e80e5aa02be1d444e41ee';
 
   private JSONBIN_USER_COURSES_LIST = '614d3c589548541c29b751dc';
@@ -34,11 +36,26 @@ export class CoursesService {
     });
   }
 
+  private getCourseServiceUrl(courseId: string): string {
+
+    let url = this.COURSE_BASE_URL;
+
+    if (courseId === '0001') {
+
+      url = url + this.JSONBIN_COURSE_DETAIL_1;
+    } else {
+
+      url = url + this.JSONBIN_COURSE_DETAIL_2;
+    }
+
+    return url + this.COURSE_API_VERSION;
+  }
+
   getCourseDetails(courseId: string): Promise<Course> {
 
     const headers = this.createHeaders();
 
-    const url = this.COURSE_BASE_URL + this.JSONBIN_COURSE_DETAIL_2 + this.COURSE_API_VERSION;
+    const url = this.getCourseServiceUrl(courseId);
 
     return this.http.get<any>(url, { headers: headers })
       .pipe(

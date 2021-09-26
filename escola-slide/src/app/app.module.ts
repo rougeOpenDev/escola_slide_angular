@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
@@ -59,6 +60,7 @@ import { UserComponent } from './components/user/user.component';
     MatTooltipModule,
     MatCardModule,
     MatSliderModule,
+    MatTabsModule,
     MatChipsModule,
     MatInputModule,
     MatIconModule,

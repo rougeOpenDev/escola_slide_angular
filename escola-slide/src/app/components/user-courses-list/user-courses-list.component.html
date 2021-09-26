@@ -4,7 +4,8 @@
 
   <mat-card *ngFor="let course of coursesList" class="course-card"
       fxFlex.xs="100%"
-      fxFlex="calc(40% - 20px)" >
+      fxFlex="calc(40% - 20px)"
+      [routerLink]="['/user/me/courses/' + course.id]" >
 
     <img class="course-card-img" mat-card-image src="{{ course.imgSrc }}" alt="Photo of Course description">
     <mat-card-header>

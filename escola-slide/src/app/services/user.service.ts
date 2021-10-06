@@ -1,18 +1,17 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
 import { catchError } from 'rxjs/internal/operators/catchError';
-import { take } from 'rxjs/operators';
-import { StoreItem } from 'src/app/models/store-item.model';
+import { take } from 'rxjs/operators';import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
+import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StoreService {
+export class UserService {
 
-  private JSONBIN_ITENS_STORE = '615cfead9548541c29be989b';
+  private JSONBIN_USER_DASH = '615d0c894a82881d6c5b9cd3';
 
   constructor(
     private http: HttpClient) { }
@@ -25,23 +24,23 @@ export class StoreService {
     });
   }
 
-  getItensStoreList(): Promise<StoreItem[]> {
+  getUserDashData(): Promise<User> {
 
     const headers = this.createHeaders();
 
-    const url = environment.COURSE_BASE_URL + this.JSONBIN_ITENS_STORE + environment.COURSE_API_VERSION;
+    const url = environment.COURSE_BASE_URL + this.JSONBIN_USER_DASH + environment.COURSE_API_VERSION;
 
     return this.http.get<any>(url, { headers: headers })
       .pipe(
         catchError(
-          this.handleError<StoreItem[]>('getItensStoreList', [])
+          this.handleError<User>('getUserDashData', undefined)
         ),
         take(1)
       ).toPromise().then(result => {
 
         if (result && result.record) {
 
-          return result.record as StoreItem[];
+          return result.record as User;
         }
 
         throw new Error('No such element "record" on API result');

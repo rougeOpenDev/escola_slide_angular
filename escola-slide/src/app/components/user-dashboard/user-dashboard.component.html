@@ -1,1 +1,34 @@
-<p>user-dashboard works!</p>
+<mat-card class="course-card" fsFlexFill >
+
+    <img class="course-card-img" mat-card-avatar src="{{ userDash?.url }}" alt="Photo of Course description">
+    <mat-card-header>
+      <mat-card-title>
+
+        {{ userDash?.name }}
+
+        <span class="example-spacer"></span>
+
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="course-card-content" fxLayout="column" >
+
+      <span>
+        {{ getClassesString(userDash) }}
+      </span>
+
+      <br/>
+
+      <div>
+
+        <mat-progress-bar mode="determinate" [value]="valorProgressBarCourse(userDash)"></mat-progress-bar>
+
+        <span>{{ userDash?.status?.watchedHours + ' de ' + userDash?.status?.totalHours }} horas </span>
+
+      </div>
+
+    </mat-card-content>
+    <mat-card-footer>
+
+    </mat-card-footer>
+
+  </mat-card>

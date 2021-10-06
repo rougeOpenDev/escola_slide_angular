@@ -1,1 +1,10 @@
-<p>store works!</p>
+<mat-list>
+  <mat-list-item *ngFor="let item of storeItensList">
+    <img matListAvatar [src]="item.url" >
+    <h3 matLine> {{item.title}} </h3>
+    <p matLine>
+      <span>Preço: </span>
+      <span>{{ item.price }} moedas</span>
+    </p>
+  </mat-list-item>
+</mat-list>

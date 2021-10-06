@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { StoreItem } from 'src/app/models/store-item.model';
+import { StoreService } from 'src/app/services/store.service';
+
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreComponent implements OnInit {
 
-  constructor() { }
+  private _storeItensList: StoreItem[];
 
-  ngOnInit(): void {
+  constructor(private storeService: StoreService) {
+
+    this._storeItensList = [];
   }
 
+  ngOnInit(): void {
+
+    this.storeService.getItensStoreList()
+      .then((list: any) => {
+
+        if (list) {
+
+          this._storeItensList = list;
+        }
+      });
+  }
+
+  get storeItensList() {
+
+    return this._storeItensList;
+  }
 }

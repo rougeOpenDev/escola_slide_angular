@@ -33,4 +33,9 @@ export class StoreComponent implements OnInit {
 
     return this._storeItensList;
   }
+
+  storePurchase(item: StoreItem) {
+
+    item.purchased = !item.purchased;
+  }
 }

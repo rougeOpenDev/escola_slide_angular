@@ -1,10 +1,44 @@
-<mat-list>
-  <mat-list-item *ngFor="let item of storeItensList">
-    <img matListAvatar [src]="item.url" >
-    <h3 matLine> {{item.title}} </h3>
-    <p matLine>
-      <span>Preço: </span>
-      <span>{{ item.price }} moedas</span>
-    </p>
-  </mat-list-item>
-</mat-list>
+<h1 fxLayoutAlign="center center">
+Loja de Avatares
+</h1>
+<div
+    fxLayout.xs="column "
+    fxLayout="row wrap" >
+
+  <mat-card
+      *ngFor="let item of storeItensList"
+      fxLayoutAlign="space-between center"
+      fxFlex.xs="100%" ngStyle.xs="height: 250px;"
+      style="margin: 20px; min-width: 350px;"
+      fxFlex="calc(30% - 20px)" >
+
+    <img class="course-card-img" mat-card-avatar [src]="item.url" alt="User avatar">
+    <mat-card-header>
+      <mat-card-title>{{ item.title }}</mat-card-title>
+      <mat-card-subtitle>
+
+        <span>Preço: </span>
+        <span>{{ item.price }} moedas</span>
+
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions align="end"  >
+
+      <button mat-raised-button
+            color="primary"
+            *ngIf="!item?.purchased"
+            (click)="storePurchase(item)" >
+          Comprar Avatar
+      </button>
+      <button mat-raised-button
+          color="accent"
+          *ngIf="item?.purchased" >
+        Usar Avatar
+      </button>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

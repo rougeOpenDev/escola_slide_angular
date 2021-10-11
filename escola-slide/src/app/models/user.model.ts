@@ -1,3 +1,4 @@
+import { Course } from './course.model';
 import { Status } from './status.model';
 
 export interface User {
@@ -7,5 +8,6 @@ export interface User {
   cash: string,
   url?: string,
 
-  status?: Status
+  status?: Status,
+  courses?: Course[]
 }

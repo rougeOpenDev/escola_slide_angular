@@ -27,6 +27,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { NgxEchartsModule } from 'ngx-echarts';
+
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
@@ -72,7 +74,11 @@ import { UserCourseDetailsComponent } from './components/user-course-details/use
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatSidenavModule
+    MatSidenavModule,
+
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

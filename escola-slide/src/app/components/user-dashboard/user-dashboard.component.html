@@ -1,34 +1,45 @@
-<mat-card class="course-card" fsFlexFill >
+<div fxFlexFill fxLayout="column" >
+  <mat-card
+    fxLayoutAlign="space-between center"
+    fxFlex="20"
+    fxFlex.xs="30"
+    style="margin: 10px;" >
 
-    <img class="course-card-img" mat-card-avatar src="{{ userDash?.url }}" alt="Photo of Course description">
-    <mat-card-header>
-      <mat-card-title>
+  <img class="course-card-img" mat-card-avatar src="{{ userDash?.url }}" alt="User avatar">
+  <mat-card-header>
+    <mat-card-title>
+      Olá, {{ userDash?.name }}
+    </mat-card-title>
+  </mat-card-header>
 
-        {{ userDash?.name }}
+  <mat-card-content class="course-card-content" fxLayout="column" >
 
-        <span class="example-spacer"></span>
+    <span>
+      {{ getClassesString(userDash) }}
+    </span>
 
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="course-card-content" fxLayout="column" >
+    <br/>
 
-      <span>
-        {{ getClassesString(userDash) }}
-      </span>
+    <div>
 
-      <br/>
+      <mat-progress-bar mode="determinate" [value]="valorProgressBarCourse(userDash)"></mat-progress-bar>
 
-      <div>
+      <span>{{ userDash?.status?.watchedHours + ' de ' + userDash?.status?.totalHours }} horas </span>
 
-        <mat-progress-bar mode="determinate" [value]="valorProgressBarCourse(userDash)"></mat-progress-bar>
+    </div>
 
-        <span>{{ userDash?.status?.watchedHours + ' de ' + userDash?.status?.totalHours }} horas </span>
-
-      </div>
-
-    </mat-card-content>
-    <mat-card-footer>
-
-    </mat-card-footer>
+  </mat-card-content>
 
   </mat-card>
+
+  <mat-card
+    fxLayoutAlign="center center"
+    style="margin: 10px;" fxFillFlex >
+
+    <div fxFlex *ngIf="showChart" >
+
+      <div id="chart1" echarts [options]="options" ></div>
+    </div>
+
+  </mat-card>
+</div>

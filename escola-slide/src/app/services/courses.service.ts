@@ -17,7 +17,7 @@ export class CoursesService {
   private JSONBIN_COURSE_DETAIL_2 = '614e80e5aa02be1d444e41ee';
 
   private JSONBIN_USER_COURSE_DETAIL_2 = '614e80e5aa02be1d444e41ee';
-  private JSONBIN_USER_COURSE_DETAIL_3 = '';
+  private JSONBIN_USER_COURSE_DETAIL_3 = '614e80e5aa02be1d444e41ee';
 
   private JSONBIN_USER_COURSES_LIST = '614d3c589548541c29b751dc';
   private JSONBIN_COURSES_LIST = '614d395eaa02be1d444d9685';

@@ -13,7 +13,6 @@ export class CoursesListComponent implements OnInit {
 
   private _coursesList: Course[];
 
-  private _chipsSelectable: boolean;
   private _chipsRemovable: boolean;
   private _chipsMultiple: boolean;
 
@@ -21,7 +20,6 @@ export class CoursesListComponent implements OnInit {
 
     this._coursesList = [];
 
-    this._chipsSelectable = false;
     this._chipsRemovable = false;
     this._chipsMultiple = true;
   }
@@ -36,11 +34,6 @@ export class CoursesListComponent implements OnInit {
           this._coursesList = list;
         }
       });
-  }
-
-  get chipsSelectable() {
-
-    return this._chipsSelectable;
   }
 
   get chipsRemovable() {

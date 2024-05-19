@@ -15,14 +15,13 @@
 
     <mat-card-actions class="course-card-content" >
 
-      <mat-chip-list #chipList [multiple]="chipsMultiple" >
+      <mat-chip-listbox #chipList [multiple]="chipsMultiple" >
         <mat-chip
           *ngFor="let tag of course?.tags"
-          [selectable]="chipsSelectable"
           [removable]="chipsRemovable" >
           {{ tag }}
         </mat-chip>
-      </mat-chip-list>
+      </mat-chip-listbox>
     </mat-card-actions>
 
   </mat-card>

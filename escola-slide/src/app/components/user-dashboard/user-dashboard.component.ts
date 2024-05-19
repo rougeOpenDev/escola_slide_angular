@@ -139,7 +139,10 @@ export class UserDashboardComponent implements OnInit {
     if (chartElement1) {
 
       const chart1 = getInstanceByDom(chartElement1);
-      connect([chart1]);
+      if (chart1) {
+
+        connect([chart1]);
+      }
     }
   }
 

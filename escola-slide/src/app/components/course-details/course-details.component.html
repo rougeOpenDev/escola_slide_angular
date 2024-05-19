@@ -29,14 +29,13 @@
             </p>
         </div>
 
-        <mat-chip-list #chipList [multiple]="false" >
+        <mat-chip-listbox #chipList [multiple]="false" >
           <mat-chip
             *ngFor="let tag of course?.tags"
-            [selectable]="false"
             [removable]="false" >
             {{ tag }}
           </mat-chip>
-        </mat-chip-list>
+        </mat-chip-listbox>
 
       </mat-card-content>
 

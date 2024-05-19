@@ -41,8 +41,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "escola-slide:build:production"
+              "buildTarget": "escola-slide:build:production"
             },
             "development": {
-              "browserTarget": "escola-slide:build:development"
+              "buildTarget": "escola-slide:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "escola-slide"
+  "cli": {
+    "analytics": false
+  }
 }

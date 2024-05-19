@@ -13,7 +13,7 @@
         <mat-icon *ngIf="!leason.completed" mat-list-icon>radio_button_unchecked</mat-icon>
         <mat-icon *ngIf="leason.completed" mat-list-icon>check_circle_outline</mat-icon>
         <a
-            (click)="drawer.close() && watchCourseLeason(leason)"
+            (click)="watchCourseLeason(leason)"
             matLine >
           {{ leason.title }}
         </a>

@@ -1,39 +1,17 @@
-.toolbar-btn {
+.left-actions {
+  display: flex;
+}
 
+.right-actions {
+  display: flex;
+  margin-left: auto;
+}
+
+nb-layout-header {
+  background-color: #222B45; /* Cor de fundo da toolbar */
   color: white;
 }
 
-.sidenav-menu-btn {
-
-  color: white;
-}
-
-.sidenav-btn {
-
-  color: white;
-  height: 50px;
-}
-
-.fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100% !important;
-  height: 64px !important;
-}
-
-.web-content {
-
-  height: calc(100% - 64px) !important;
-}
-
-.mobile-content {
-
-  width: calc(100% - 65px) !important;
-}
-
-.sidenav-without-toolbar {
-
-  top: 64px;
+nb-action {
+  margin: 0 10px;
 }

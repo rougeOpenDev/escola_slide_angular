@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { MenuPositionY } from '@angular/material/menu';
-import { TooltipPosition } from '@angular/material/tooltip';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +9,9 @@ export class AppComponent {
 
   title = 'escola-slide';
 
-  private _menuPosition: MenuPositionY;
+  private _menuPosition;
 
-  private _tooltipPosition: TooltipPosition;
+  private _tooltipPosition;
   private _tooltipShowDelay: number;
   private _tooltipHideDelay: number;
 
@@ -52,6 +49,22 @@ export class AppComponent {
   }
 
   sair() {
+
+  }
+
+  onHomeClick() {
+
+  }
+
+  onDashboardClick() {
+
+  }
+
+  onSearchClick() {
+
+  }
+
+  onSettingsClick() {
 
   }
 }

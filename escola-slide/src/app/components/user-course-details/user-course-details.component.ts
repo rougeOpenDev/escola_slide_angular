@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,7 +14,6 @@ import { CoursesService } from 'src/app/services/courses.service';
 export class UserCourseDetailsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('iframe') iframe: ElementRef | undefined;
-  @ViewChild('drawer') drawer: MatDrawer | undefined;
 
   private _course!: Course;
 
@@ -111,10 +109,6 @@ export class UserCourseDetailsComponent implements OnInit, AfterViewInit {
   }
 
   watchCourseLeason(clickedClass: CourseLeason) {
-
-    if (this.drawer) {
-      this.drawer.close();
-    }
 
     this.currentLeason = clickedClass;
 

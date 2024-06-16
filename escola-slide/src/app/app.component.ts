@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,38 @@ export class AppComponent {
   private _tooltipPosition;
   private _tooltipShowDelay: number;
   private _tooltipHideDelay: number;
+
+  menuItems: NbMenuItem[] = [
+    {
+      title: 'Home',
+      icon: 'home-outline',
+      link: '/home',
+    },
+    {
+      title: 'Dashboard',
+      icon: 'grid-outline',
+      link: '/dashboard',
+    },
+    {
+      title: 'Search',
+      icon: 'search-outline',
+      children: [
+        {
+          title: 'Advanced Search',
+          link: '/search/advanced',
+        },
+        {
+          title: 'Search by Category',
+          link: '/search/category',
+        },
+      ],
+    },
+    {
+      title: 'Settings',
+      icon: 'settings-outline',
+      link: '/settings',
+    },
+  ];
 
   constructor() {
 

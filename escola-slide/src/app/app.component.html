@@ -1,20 +1,17 @@
-<nb-layout>
-  <nb-layout-header fixed>
+<nb-layout class="full-height-layout" >
 
-    <nb-actions class="left-actions">
-      <nb-action icon="home-outline" (click)="onHomeClick()">Home</nb-action>
-      <nb-action icon="grid-outline" (click)="onDashboardClick()">Dashboard</nb-action>
-      <nb-action icon="search-outline" (click)="onSearchClick()">Search</nb-action>
-      <nb-action icon="settings-outline" (click)="onSettingsClick()">Settings</nb-action>
-    </nb-actions>
-    <nb-actions class="right-actions">
-      <nb-action>
-        <nb-user [name]="'John Doe'" [picture]="'https://i.pravatar.cc/150?img=3'"></nb-user>
-      </nb-action>
-    </nb-actions>
+  <nb-layout-header fixed class="fixed-height-header-layout" >
+
+    <app-top-principal-menu>
+
+    </app-top-principal-menu>
+
   </nb-layout-header>
 
-  <nb-layout-column>
-    <!-- Conteúdo principal aqui -->
+  <nb-layout-column class="full-height-column" >
+
+      <router-outlet></router-outlet>
+
   </nb-layout-column>
+
 </nb-layout>

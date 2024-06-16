@@ -4,11 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbActionsModule,
   NbButtonModule,
+  NbCardModule,
   NbIconModule,
   NbLayoutModule,
+  NbMenuModule,
   NbSidebarModule,
   NbThemeModule,
   NbUserModule,
@@ -19,12 +22,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
+import { TopPrincipalMenuComponent } from './components/navigation/top-principal-menu/top-principal-menu.component';
 import { StoreComponent } from './components/store/store.component';
 import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { UserComponent } from './components/user/user.component';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     UserCoursesListComponent,
     StoreComponent,
     UserComponent,
-    UserCourseDetailsComponent
+    UserCourseDetailsComponent,
+    TopPrincipalMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +54,11 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbButtonModule,
     NbSidebarModule.forRoot(),
     NbActionsModule,
+    NbMenuModule.forRoot(),  // Importando NbMenuModule,
     NbIconModule,
     NbUserModule,
     NbEvaIconsModule,
+    NbCardModule,
 
     YouTubePlayerModule,
 

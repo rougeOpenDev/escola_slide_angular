@@ -1,33 +1,11 @@
+<nb-card class="menu-container" >
 
-  <!--nb-menu [items]="items" autoCollapse="true">
-  </nb-menu- ->
-  <nb-card size="giant">
-    <nb-menu tag="menu" [items]="items"></nb-menu>
-    <div class="control-panel">
-      <h3 class="h4">Selected item: {{ selectedItem }}</h3>
-      <button nbButton (click)="addMenuItem()">Add Menu Item</button>
-      <button nbButton (click)="collapseAll()">Collapse all menu items</button>
-      <button nbButton (click)="navigateHome()">Home</button>
-      <button nbButton (click)="getSelectedItem()">Get Selected Item</button>
-    </div>
+  <nb-card size="medium" *ngFor="let item of menuItems" class="menu-item" status="primary" accent="primary" >
+
+    <nb-card-body>
+      <nb-icon *ngIf="item.icon" >{{ item.icon }}</nb-icon>
+      <span *ngIf="item.title" >{{ item.title }}</span>
+    </nb-card-body>
+
   </nb-card>
-
-<nb-actions class="left-actions">
-  <nb-menu [items]="menuItems"></nb-menu>
-</nb-actions>
-<nb-actions class="right-actions">
-  <nb-action>
-    <nb-user [name]="'John Doe'" [picture]="'https://i.pravatar.cc/150?img=3'"></nb-user>
-  </nb-action>
-</nb-actions>
--->
-
-<nb-layout-header fixed class="custom-header">
-  <div class="left-actions">
-    <nb-menu [items]="items"></nb-menu>
-  </div>
-  <div class="right-actions">
-    <nb-action>
-      <nb-user [name]="'John Doe'" [picture]="'https://i.pravatar.cc/150?img=3'"></nb-user>
-    </nb-action>
-  </div>
+</nb-card>

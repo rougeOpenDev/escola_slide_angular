@@ -11,7 +11,9 @@ import {
   NbCardModule,
   NbIconModule,
   NbLayoutModule,
+  NbMenuItem,
   NbMenuModule,
+  NbSelectModule,
   NbSidebarModule,
   NbThemeModule,
   NbUserModule,
@@ -59,6 +61,7 @@ import { UserComponent } from './components/user/user.component';
     NbUserModule,
     NbEvaIconsModule,
     NbCardModule,
+    NbSelectModule,
 
     YouTubePlayerModule,
 

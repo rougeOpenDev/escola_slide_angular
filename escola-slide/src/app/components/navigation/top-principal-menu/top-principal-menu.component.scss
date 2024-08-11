@@ -1,39 +1,68 @@
-.custom-header {
 
+.menu-container {
+
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #222B45;
-  color: white;
-  padding: 0 1rem; /* Espaçamento interno */
 }
 
-
-.left-actions {
-
-  flex: 1; // Ocupa todo o espaço à esquerda
-  nb-menu {
-
-    display: flex;
-    align-items: center;
-
-    nb-menu-item {
-      padding: 0 1rem;
-      button {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+/*
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+*/
 
-.right-actions {
+/* Estilos do header */
+.header {
+  height: 60px;
+  // background-color: #4285f4; /* Cor azul do header */
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.menu-item {
+
+  flex: 1 0 auto; /* Ocupa um espaço igual, mas permite encolher */
+  max-height: 40px; /* Limita a altura do item, deixando espaço para padding */
+  padding: 5px;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis; /* Truncar texto com elipses */
+  width: 200px;
+  margin-right: 16px; /* Espaçamento entre os cards */
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #fff; /* Cor branca para o texto */
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+}
+
+nb-menu {
+
+
+}
+
+.custom-header {
+
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px; /* Ajustar o padding conforme necessário */
 }

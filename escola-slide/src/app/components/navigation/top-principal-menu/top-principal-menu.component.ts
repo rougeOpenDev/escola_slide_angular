@@ -25,21 +25,32 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  menuItems: NbMenuItem[] = [
+    { title: 'Home', icon: 'home-outline', link: '/', home: true },
+    {
+      title: 'História',
+      icon: 'book-outline',
+      children: [
+        { title: 'História 2', link: '/historia/2' },
+        { title: 'História 3', link: '/historia/3' },
+      ],
+    },
+    { title: 'Nós', icon: 'people-outline', link: '/nos' },
+    { title: 'Apoio', icon: 'help-outline', link: '/apoio' },
+  ];
+
   items: NbMenuItem[] = [
     {
       title: 'Home',
-      icon: 'home-outline',
       link: '/home',
     },
     {
       title: 'Dashboard',
-      icon: 'grid-outline',
       link: '/dashboard',
     },
     {
       title: 'Search',
-      icon: 'search-outline',
-      children: [
+      /*children: [
         {
           title: 'Advanced Search',
           link: '/search/advanced',
@@ -48,11 +59,10 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
           title: 'Search by Category',
           link: '/search/category',
         },
-      ],
+      ],*/
     },
     {
       title: 'Settings',
-      icon: 'settings-outline',
       link: '/settings',
     },
   ];

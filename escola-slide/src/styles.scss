@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@nebular/theme/styles/globals';
+@import '@nebular/theme/styles/theming';
+@import '@nebular/theme/styles/themes/cosmic';
 
 html, body {
 
@@ -6,3 +9,9 @@ html, body {
   overflow: hidden;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+nav.fixed {
+
+  padding: 0px !important;
+}

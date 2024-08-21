@@ -3,8 +3,16 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+
+  margin-bottom: 0px;
 }
 
 /*
@@ -15,54 +23,56 @@
 }
 */
 
-/* Estilos do header */
-.header {
-  height: 60px;
-  // background-color: #4285f4; /* Cor azul do header */
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 .menu-item {
 
-  flex: 1 0 auto; /* Ocupa um espaço igual, mas permite encolher */
-  max-height: 40px; /* Limita a altura do item, deixando espaço para padding */
-  padding: 5px;
-  overflow: hidden;
-  position: relative;
-  text-overflow: ellipsis; /* Truncar texto com elipses */
-  width: 200px;
-  margin-right: 16px; /* Espaçamento entre os cards */
-}
-
-.menu-item a {
-  text-decoration: none;
-  color: #fff; /* Cor branca para o texto */
-}
-
-.submenu {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  top: 100%;
-  left: 0;
-  z-index: 1;
-}
-
-.menu-item:hover .submenu {
-  display: block;
-}
-
-nb-menu {
-
-
-}
-
-.custom-header {
-
-  height: 60px;
   display: flex;
-  align-items: center;
-  padding: 0 16px; /* Ajustar o padding conforme necessário */
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  // flex: 1 0 auto; /* Ocupa um espaço igual, mas permite encolher */
+  width: 15%;
+
+  padding: 10px; /* Espessura interna */
+  border-radius: 20px; /* Borda arredondada */
+
+  // max-height: 40px; /* Limita a altura do item, deixando espaço para padding */
+  // padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // width: 30px;
+  // margin-right: 16px; /* Espaçamento entre os cards */
+
+  // border: 0px;
+  margin-bottom: 0px;
 }
+
+// .menu-item a {
+//   text-decoration: none;
+//   color: #fff; /* Cor branca para o texto */
+// }
+
+// .submenu {
+//   display: none;
+//   position: absolute;
+//   background-color: #fff;
+//   top: 100%;
+//   left: 0;
+//   z-index: 1;
+// }
+
+// .menu-item:hover .submenu {
+//   display: block;
+// }
+
+// nb-menu {
+
+
+// }
+
+// .custom-header {
+
+//   height: 60px;
+//   display: flex;
+//   align-items: center;
+//   padding: 0 16px; /* Ajustar o padding conforme necessário */
+// }

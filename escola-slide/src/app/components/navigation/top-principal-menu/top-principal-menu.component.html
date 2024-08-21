@@ -1,8 +1,8 @@
 <nb-card class="menu-container" >
 
-  <nb-card size="medium" *ngFor="let item of menuItems" class="menu-item" status="primary" accent="primary" >
+  <nb-card *ngFor="let item of menuItems" class="menu-item" >
 
-    <nb-card-body>
+    <nb-card-body class="menu-item" >
       <nb-icon *ngIf="item.icon" >{{ item.icon }}</nb-icon>
       <span *ngIf="item.title" >{{ item.title }}</span>
     </nb-card-body>

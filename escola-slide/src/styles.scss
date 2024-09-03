@@ -1,7 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
 @import '@nebular/theme/styles/globals';
-@import '@nebular/theme/styles/theming';
+@import '@nebular/theme/styles/themes/corporate';
 @import '@nebular/theme/styles/themes/cosmic';
+@import '@nebular/theme/styles/themes/dark';
+@import '@nebular/theme/styles/themes/default';
+@import '@nebular/theme/styles/theming';
+
+@include nb-install() {
+  @include nb-theme-global();
+};
 
 html, body {
 

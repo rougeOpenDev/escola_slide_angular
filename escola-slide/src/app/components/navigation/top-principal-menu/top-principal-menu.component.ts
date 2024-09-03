@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMenuItem, NbMenuService } from '@nebular/theme';
-import { Subject } from 'rxjs/internal/Subject';
+import { NbMenuItem, NbMenuService, NbThemeService } from '@nebular/theme';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-top-principal-menu',
@@ -14,10 +14,30 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
 
   selectedItem: string;
 
-  constructor(private menuService: NbMenuService) {
+  private _themes = ['default', 'corporate', 'dark', 'cosmic'];
+  private _themeActive: number;
+
+  constructor(private menuService: NbMenuService, private themeService: NbThemeService) {
 
     this.destroy$ = new Subject<void>();
     this.selectedItem = 'home';
+
+    this._themeActive = 3;
+  }
+
+  ngOnInit() {
+
+  }
+
+  changeTheme() {
+
+    this.themeActive++;
+    if (this.themeActive == this.themes.length) {
+
+      this.themeActive = 0;
+    }
+
+    this.themeService.changeTheme(this.themes[this.themeActive]);
   }
 
   ngOnDestroy() {
@@ -25,7 +45,7 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  menuItems: NbMenuItem[] = [
+  menuItems = [
     { title: 'Home', icon: 'home-outline', link: '/', home: true },
     {
       title: 'História',
@@ -92,7 +112,18 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit() {
+  get themes() {
+
+    return this._themes;
   }
 
+  get themeActive() {
+
+    return this._themeActive;
+  }
+
+  set themeActive(themeActive: number) {
+
+    this._themeActive = themeActive;
+  }
 }

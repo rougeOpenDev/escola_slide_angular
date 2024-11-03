@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMenuItem, NbMenuService, NbThemeService } from '@nebular/theme';
+import { Router } from '@angular/router';
+import { NbMenuService, NbThemeService } from '@nebular/theme';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Subject } from 'rxjs/internal/Subject';
 
@@ -17,7 +18,10 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
   private _themes = ['default', 'corporate', 'dark', 'cosmic'];
   private _themeActive: number;
 
-  constructor(private menuService: NbMenuService, private themeService: NbThemeService) {
+  constructor(
+      private menuService: NbMenuService,
+      private themeService: NbThemeService,
+      private router: Router) {
 
     this.destroy$ = new Subject<void>();
     this.selectedItem = 'home';
@@ -46,7 +50,8 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
   }
 
   menuItems = [
-    { title: 'Home', icon: 'home-outline', link: '/', home: true },
+    { title: 'Destaques', icon: 'home-outline', link: '/home', home: true },
+    { title: 'Treinar', icon: 'play-circle-outline', link: '/train', home: false },
     {
       title: 'História',
       icon: 'book-outline',
@@ -57,34 +62,6 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
     },
     { title: 'Nós', icon: 'people-outline', link: '/nos' },
     { title: 'Apoio', icon: 'help-outline', link: '/apoio' },
-  ];
-
-  items: NbMenuItem[] = [
-    {
-      title: 'Home',
-      link: '/home',
-    },
-    {
-      title: 'Dashboard',
-      link: '/dashboard',
-    },
-    {
-      title: 'Search',
-      /*children: [
-        {
-          title: 'Advanced Search',
-          link: '/search/advanced',
-        },
-        {
-          title: 'Search by Category',
-          link: '/search/category',
-        },
-      ],*/
-    },
-    {
-      title: 'Settings',
-      link: '/settings',
-    },
   ];
 
   addMenuItem() {
@@ -125,5 +102,21 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
   set themeActive(themeActive: number) {
 
     this._themeActive = themeActive;
+  }
+
+  navigateTo(menuItem: any) {
+
+    if (menuItem?.link) {
+
+      this.router.navigateByUrl(menuItem?.link)
+        .then((navigated) => {
+
+          if (navigated) {
+            console.log('Navegação bem-sucedida');
+          } else {
+            console.log('Navegação falhou');
+          }
+        });
+    }
   }
 }

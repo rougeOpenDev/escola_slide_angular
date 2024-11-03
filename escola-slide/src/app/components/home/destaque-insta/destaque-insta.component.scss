@@ -1,0 +1,34 @@
+.destaque-card {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: 2rem;
+
+  .titulo-associacao {
+
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--nb-theme-color-primary);
+  }
+
+  .descricao-associacao {
+
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .carrossel-container {
+
+    max-width: 80%;
+    width: 100%;
+    height: 300px; /* Tamanho fixo para o carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

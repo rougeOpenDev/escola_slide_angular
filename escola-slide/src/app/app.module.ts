@@ -11,10 +11,10 @@ import {
   NbCardModule,
   NbIconModule,
   NbLayoutModule,
-  NbMenuItem,
   NbMenuModule,
   NbSelectModule,
   NbSidebarModule,
+  NbStepperModule,
   NbThemeModule,
   NbUserModule,
 } from '@nebular/theme';
@@ -24,8 +24,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
+import { DestaqueInstaComponent } from './components/home/destaque-insta/destaque-insta.component';
 import { TopPrincipalMenuComponent } from './components/navigation/top-principal-menu/top-principal-menu.component';
 import { StoreComponent } from './components/store/store.component';
+import { TrainConfigComponent } from './components/train/train-config/train-config.component';
 import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
@@ -41,7 +43,11 @@ import { UserComponent } from './components/user/user.component';
     StoreComponent,
     UserComponent,
     UserCourseDetailsComponent,
+
     TopPrincipalMenuComponent,
+    DestaqueInstaComponent,
+    TrainConfigComponent
+
   ],
   imports: [
     BrowserModule,
@@ -62,6 +68,7 @@ import { UserComponent } from './components/user/user.component';
     NbEvaIconsModule,
     NbCardModule,
     NbSelectModule,
+    NbStepperModule,
 
     YouTubePlayerModule,
 

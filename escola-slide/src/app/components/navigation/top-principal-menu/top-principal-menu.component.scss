@@ -1,84 +1,29 @@
-@import '@nebular/theme/styles/theming';
-
 .menu-container {
-
   display: flex;
   flex-direction: row;
   align-items: center;
-  align-content: center;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  gap: 10px;
   padding: 5px 8px;
-
   width: 100%;
   height: 100%;
-
-  background-color: nb-theme(color-basic-1100);
-  box-shadow: nb-theme(header-shadow);
-
-  border: 0;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 20px 20px;
-  margin-bottom: 0px;
 }
-
-/*
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-*/
 
 .menu-item {
-
   display: flex;
-  flex-direction: row;
   flex-wrap: nowrap;
-
+  flex-direction: row;
   width: 15%;
-
   padding: 0;
   border-radius: 20px; /* Borda arredondada */
-
   overflow: hidden;
   text-overflow: ellipsis;
-
   border: 0px;
   margin-bottom: 0px;
+  margin-right: 10px;
 
   .menu-item-button {
-
     width: 100%;
   }
 }
-
-// .menu-item a {
-//   text-decoration: none;
-//   color: #fff; /* Cor branca para o texto */
-// }
-
-// .submenu {
-//   display: none;
-//   position: absolute;
-//   background-color: #fff;
-//   top: 100%;
-//   left: 0;
-//   z-index: 1;
-// }
-
-// .menu-item:hover .submenu {
-//   display: block;
-// }
-
-// nb-menu {
-
-
-// }
-
-// .custom-header {
-
-//   height: 60px;
-//   display: flex;
-//   align-items: center;
-// }

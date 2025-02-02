@@ -1,24 +1,17 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import {
-  NbActionsModule,
-  NbButtonModule,
-  NbCardModule,
-  NbIconModule,
-  NbLayoutModule,
-  NbMenuModule,
-  NbSelectModule,
-  NbSidebarModule,
-  NbStepperModule,
-  NbThemeModule,
-  NbUserModule,
-} from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { StepsModule } from 'primeng/steps';
+import { MenuModule } from 'primeng/menu';
+import { PanelModule } from 'primeng/panel';
+import { PrimeNGConfig } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,11 +36,9 @@ import { UserComponent } from './components/user/user.component';
     StoreComponent,
     UserComponent,
     UserCourseDetailsComponent,
-
     TopPrincipalMenuComponent,
     DestaqueInstaComponent,
     TrainConfigComponent
-
   ],
   imports: [
     BrowserModule,
@@ -56,27 +47,23 @@ import { UserComponent } from './components/user/user.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
-    NbThemeModule.forRoot({ name: 'cosmic' }),
-    NbLayoutModule,
-    NbButtonModule,
-    NbSidebarModule.forRoot(),
-    NbActionsModule,
-    NbMenuModule.forRoot(),  // Importando NbMenuModule,
-    NbIconModule,
-    NbUserModule,
-    NbEvaIconsModule,
-    NbCardModule,
-    NbSelectModule,
-    NbStepperModule,
-
     YouTubePlayerModule,
-
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    ButtonModule,
+    TableModule,
+    CardModule,
+    StepsModule,
+    MenuModule,
+    PanelModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [PrimeNGConfig],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private primengConfig: PrimeNGConfig) {
+    this.primengConfig.ripple = true;
+  }
+}

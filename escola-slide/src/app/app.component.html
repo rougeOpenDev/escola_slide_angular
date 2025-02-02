@@ -1,17 +1,11 @@
-<nb-layout class="full-height-layout" >
+<p-panel class="full-height-layout">
 
-  <nb-layout-header fixed class="fixed-height-header-layout" >
+  <p-header class="fixed-height-header-layout">
+    <app-top-principal-menu class="full-width-header"></app-top-principal-menu>
+  </p-header>
 
-    <app-top-principal-menu class="full-width-header" >
+  <p-panel-content class="full-height-column">
+    <router-outlet></router-outlet>
+  </p-panel-content>
 
-    </app-top-principal-menu>
-
-  </nb-layout-header>
-
-  <nb-layout-column class="full-height-column" >
-
-      <router-outlet></router-outlet>
-
-  </nb-layout-column>
-
-</nb-layout>
+</p-panel>

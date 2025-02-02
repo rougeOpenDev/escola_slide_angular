@@ -1,4 +1,3 @@
-@import '@nebular/theme/styles/theming';
 
 .full-height-layout {
 
@@ -20,7 +19,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: nb-theme(layout-background-color);
   box-shadow: none;
 }
 

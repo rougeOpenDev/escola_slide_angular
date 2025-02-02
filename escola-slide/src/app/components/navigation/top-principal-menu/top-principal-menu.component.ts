@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NbMenuService, NbThemeService } from '@nebular/theme';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 import { Subject } from 'rxjs/internal/Subject';
 
@@ -19,8 +18,6 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
   private _themeActive: number;
 
   constructor(
-      private menuService: NbMenuService,
-      private themeService: NbThemeService,
       private router: Router) {
 
     this.destroy$ = new Subject<void>();
@@ -41,7 +38,7 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
       this.themeActive = 0;
     }
 
-    this.themeService.changeTheme(this.themes[this.themeActive]);
+    // this.themeService.changeTheme(this.themes[this.themeActive]);
   }
 
   ngOnDestroy() {
@@ -63,6 +60,7 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
     { title: 'Nós', icon: 'people-outline', link: '/nos' },
     { title: 'Apoio', icon: 'help-outline', link: '/apoio' },
   ];
+/*
 
   addMenuItem() {
     this.menuService.addItems([{
@@ -87,7 +85,7 @@ export class TopPrincipalMenuComponent implements OnInit, OnDestroy {
       .subscribe( (menuBag) => {
         this.selectedItem = menuBag.item.title;
       });
-  }
+  }*/
 
   get themes() {
 

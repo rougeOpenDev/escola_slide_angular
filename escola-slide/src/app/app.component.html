@@ -1,11 +1,32 @@
-<p-panel class="full-height-layout">
+<div class="layout">
+  <!-- Barra Superior -->
+  <p-toolbar class="top-bar">
+    <div class="p-toolbar-group-left">
+      <button pButton icon="pi pi-bars" class="icon-button"></button>
+      <span class="app-title">Vamo Dale Skate</span>
+    </div>
+    <div class="p-toolbar-group-right">
+      <!-- Exemplo: botões de ação -->
+      <button pButton icon="pi pi-search" class="icon-button"></button>
+      <button pButton icon="pi pi-bell" class="icon-button"></button>
+      <button pButton icon="pi pi-palette" class="icon-button" (click)="toggleTheme()"></button>
+    </div>
+  </p-toolbar>
 
-  <p-header class="fixed-height-header-layout">
-    <app-top-principal-menu class="full-width-header"></app-top-principal-menu>
-  </p-header>
-
-  <p-panel-content class="full-height-column">
+  <!-- Área de Conteúdo Principal -->
+  <div class="main-content">
+    <!-- Aqui você pode inserir o router-outlet ou o conteúdo dinâmico -->
     <router-outlet></router-outlet>
-  </p-panel-content>
+  </div>
 
-</p-panel>
+  <!-- Menu Inferior -->
+  <p-toolbar class="bottom-bar">
+    <div class="p-toolbar-group-center">
+      <button pButton icon="pi pi-home" class="bottom-bar-button icon-button"></button>
+      <button pButton icon="pi pi-compass" class="bottom-bar-button icon-button"></button>
+      <button pButton icon="pi pi-plus" class="bottom-bar-button icon-button"></button>
+      <button pButton icon="pi pi-heart" class="bottom-bar-button icon-button"></button>
+      <button pButton icon="pi pi-user" class="bottom-bar-button icon-button"></button>
+    </div>
+  </p-toolbar>
+</div>

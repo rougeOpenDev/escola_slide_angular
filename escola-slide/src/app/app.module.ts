@@ -11,6 +11,8 @@ import { CardModule } from 'primeng/card';
 import { StepsModule } from 'primeng/steps';
 import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
+import { SidebarModule } from 'primeng/sidebar';
+import { MenubarModule } from 'primeng/menubar';
 import { PrimeNGConfig } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -56,7 +58,9 @@ import { UserComponent } from './components/user/user.component';
     CardModule,
     StepsModule,
     MenuModule,
-    PanelModule
+    PanelModule,
+    SidebarModule,
+    MenubarModule
   ],
   providers: [PrimeNGConfig],
   bootstrap: [AppComponent],

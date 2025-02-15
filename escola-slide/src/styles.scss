@@ -1,13 +1,21 @@
+@import '~primeng/resources/primeng.min.css';
+@import '~primeicons/primeicons.css';
+
+// Importar temas
+@import '~primeng/resources/themes/arya-blue/theme.css';
+@import '~primeng/resources/themes/md-light-indigo/theme.css';
+@import '~primeng/resources/themes/lara-light-blue/theme.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 html, body {
-
   height: 100%;
   overflow: hidden;
+  min-width: 320px; /* Largura mínima */
+  min-height: 480px; /* Altura mínima */
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-nav.fixed {
-
-  padding: 0px !important;
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }

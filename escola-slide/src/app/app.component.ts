@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class AppComponent {
 
   currentTheme: string = 'arya-blue';
 
-  constructor() {
+  constructor(private themeService: ThemeService) {
 
     this._menuPosition = 'below';
 
@@ -63,7 +64,8 @@ export class AppComponent {
   }
 
   toggleTheme() {
-    const themes = ['arya-blue', 'md-light-indigo', 'lara-light-blue'];
+
+    const themes = ['arya-blue', 'md-light-indigo', 'md-dark-indigo', 'vela-blue', 'saga-blue'];
     const currentIndex = themes.indexOf(this.currentTheme);
     const nextIndex = (currentIndex + 1) % themes.length;
     this.currentTheme = themes[nextIndex];
@@ -71,9 +73,9 @@ export class AppComponent {
   }
 
   changeTheme(theme: string) {
-    const themeLink = document.getElementById('app-theme') as HTMLLinkElement;
-    themeLink.href = `assets/themes/${theme}/theme.css`;
-  }
+
+    this.themeService.switchTheme(theme);
+}
 
   onClick() {
 

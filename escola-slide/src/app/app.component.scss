@@ -29,6 +29,10 @@
 }
 
 .app-title {
+  font-style: oblique;
+  font-variant: small-caps;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* Área de Conteúdo Principal ocupa o espaço restante */

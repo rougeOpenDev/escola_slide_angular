@@ -64,8 +64,7 @@ export class AppComponent {
   }
 
   toggleTheme() {
-
-    const themes = ['arya-blue', 'md-light-indigo', 'md-dark-indigo', 'vela-blue', 'saga-blue'];
+    const themes = ['rhea', 'mira', 'nano', 'soho-dark', 'soho-light', 'fluent-light', 'arya-blue', 'arya-orange', 'arya-green', 'arya-purple', 'md-light-indigo', 'md-dark-indigo', 'md-light-deeppurple', 'md-dark-deeppurple', 'viva-light', 'viva-dark', 'tailwind-light', 'saga-blue', 'saga-green', 'saga-orange', 'saga-purple', 'vela-blue', 'vela-green', 'vela-orange', 'vela-purple', 'aura-dark-amber', 'aura-dark-blue', 'aura-dark-cyan', 'aura-dark-green', 'aura-dark-indigo', 'aura-dark-lime', 'aura-dark-noir', 'aura-dark-pink', 'aura-dark-purple', 'aura-dark-teal', 'aura-light-amber', 'aura-light-blue', 'aura-light-cyan', 'aura-light-green', 'aura-light-indigo', 'aura-light-lime', 'aura-light-noir', 'aura-light-pink', 'aura-light-purple', 'aura-light-teal', 'nova-accent', 'nova-alt', 'nova', 'bootstrap4-dark-blue', 'bootstrap4-dark-purple', 'bootstrap4-light-blue', 'bootstrap4-light-purple', 'luna-amber', 'luna-blue', 'luna-green', 'luna-pink'];
     const currentIndex = themes.indexOf(this.currentTheme);
     const nextIndex = (currentIndex + 1) % themes.length;
     this.currentTheme = themes[nextIndex];

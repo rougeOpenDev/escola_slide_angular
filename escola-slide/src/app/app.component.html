@@ -1,119 +1,36 @@
-<div fxLayout="column" fxFlexFill >
+<div class="layout">
 
-  <mat-toolbar class="fixed-header" color="primary" >
+  <p-toast></p-toast>
 
-    <span>Escola de Slide</span>
+  <!-- Barra Superior -->
+  <p-toolbar class="top-bar">
 
-    <div fxLayoutAlign="center center" fxHide.xs="true" >
-
-      <button class="toolbar-btn" mat-button (click)="onClick()"
-          matTooltip="Salve Skatista"
-          [routerLink]="['/home']"
-          [matTooltipPosition]="tooltipPosition"
-          [matTooltipShowDelay]="tooltipShowDelay"
-          [matTooltipHideDelay]="tooltipHideDelay" >
-        <mat-icon>home</mat-icon>
-      </button>
-      <button class="toolbar-btn" mat-button (click)="onClick()"
-          [routerLink]="['/user/me/courses']"
-          matTooltip="Meus Cursos"
-          [matTooltipPosition]="tooltipPosition"
-          [matTooltipShowDelay]="tooltipShowDelay"
-          [matTooltipHideDelay]="tooltipHideDelay" >
-        <mat-icon>note_add</mat-icon>
-      </button>
-      <button class="toolbar-btn" mat-button (click)="onClick()"
-          [routerLink]="['/courses']"
-          matTooltip="Buscar Cursos"
-          [matTooltipPosition]="tooltipPosition"
-          [matTooltipShowDelay]="tooltipShowDelay"
-          [matTooltipHideDelay]="tooltipHideDelay" >
-        <mat-icon>find_in_page</mat-icon>
-      </button>
-      <button class="toolbar-btn" mat-button (click)="onClick()"
-          [routerLink]="['/store']"
-          matTooltip="Loja"
-          [matTooltipPosition]="tooltipPosition"
-          [matTooltipShowDelay]="tooltipShowDelay"
-          [matTooltipHideDelay]="tooltipHideDelay" >
-        <mat-icon>store</mat-icon>
-      </button>
+    <div class="p-toolbar-group-left">
+      <button pButton icon="pi pi-bars" class="icon-button"></button>
+      <h1 class="app-title">Vamo Dale Skate</h1>
     </div>
 
-    <span class="example-spacer"></span>
-
-    <div class="mat-toolbar mat-primary" >
-
-      <button mat-icon-button [matMenuTriggerFor]="menu" >
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu class="mat-toolbar mat-primary" #menu="matMenu" [yPosition]="menuPosition" color="primary" >
-        <button class="sidenav-menu-btn" mat-menu-item [routerLink]="['/user/me']"
-            matTooltip="Sair"
-            [matTooltipPosition]="tooltipPosition"
-            [matTooltipShowDelay]="tooltipShowDelay"
-            [matTooltipHideDelay]="tooltipHideDelay"  >
-          <mat-icon class="toolbar-btn">settings</mat-icon>
-          <span>Preferências</span>
-        </button>
-        <button class="sidenav-menu-btn" mat-menu-item (click)="sair()"
-              matTooltip="Sair"
-              [matTooltipPosition]="tooltipPosition"
-              [matTooltipShowDelay]="tooltipShowDelay"
-              [matTooltipHideDelay]="tooltipHideDelay" >
-          <mat-icon class="toolbar-btn">logout</mat-icon>
-          <span>Sair</span>
-        </button>
-      </mat-menu>
-
+    <div class="p-toolbar-group-right">
+      <button pButton icon="pi pi-search" class="icon-button"></button>
+      <button pButton icon="pi pi-bell" class="icon-button"></button>
+      <button pButton icon="pi pi-palette" class="icon-button" (click)="toggleTheme()"></button>
     </div>
-  </mat-toolbar>
 
-  <mat-sidenav-container fxFlexFill class="sidenav-without-toolbar"  >
+  </p-toolbar>
 
-    <mat-sidenav class="mat-toolbar mat-primary" color="primary" #sidenav mode="side" opened="true" fxShow.xs="true" fxHide="true">
+  <!-- Área de Conteúdo Principal -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 
-      <div fxLayoutAlign="center center" fxLayout="column" >
-        <button class="sidenav-btn" mat-button (click)="onClick()"
-            matTooltip="Salve Skatista"
-            [routerLink]="['/home']"
-            [matTooltipPosition]="tooltipPosition"
-            [matTooltipShowDelay]="tooltipShowDelay"
-            [matTooltipHideDelay]="tooltipHideDelay" >
-          <mat-icon>home</mat-icon>
-        </button>
-        <button class="sidenav-btn" mat-button (click)="onClick()"
-            [routerLink]="['user/me/courses']"
-            matTooltip="Meus Cursos"
-            [matTooltipPosition]="tooltipPosition"
-            [matTooltipShowDelay]="tooltipShowDelay"
-            [matTooltipHideDelay]="tooltipHideDelay" >
-          <mat-icon>note_add</mat-icon>
-        </button>
-        <button class="sidenav-btn" mat-button (click)="onClick()"
-            [routerLink]="['/courses']"
-            matTooltip="Buscar Cursos"
-            [matTooltipPosition]="tooltipPosition"
-            [matTooltipShowDelay]="tooltipShowDelay"
-            [matTooltipHideDelay]="tooltipHideDelay" >
-          <mat-icon>find_in_page</mat-icon>
-        </button>
-        <button class="sidenav-btn" mat-button (click)="onClick()"
-            [routerLink]="['/store']"
-            matTooltip="Loja"
-            [matTooltipPosition]="tooltipPosition"
-            [matTooltipShowDelay]="tooltipShowDelay"
-            [matTooltipHideDelay]="tooltipHideDelay" >
-          <mat-icon>store</mat-icon>
-        </button>
-      </div>
-
-    </mat-sidenav>
-    <mat-sidenav-content fxFlex >
-
-      <router-outlet ></router-outlet>
-
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-
+  <!-- Menu Inferior -->
+  <p-toolbar class="bottom-bar">
+    <div class="p-toolbar-group-center">
+      <button pButton icon="pi pi-home" class="bottom-bar-button icon-button" (click)="navigateToHome()"></button>
+      <button pButton icon="pi pi-book" class="bottom-bar-button icon-button" (click)="navigateToTricks()"></button> <!-- Sugestão de ícone: pi-book -->
+      <button pButton icon="pi pi-plus" class="bottom-bar-button icon-button" (click)="navigateToTrain()"></button>
+      <button pButton icon="pi pi-heart" class="bottom-bar-button icon-button"></button>
+      <button pButton icon="pi pi-user" class="bottom-bar-button icon-button"></button>
+    </div>
+  </p-toolbar>
 </div>

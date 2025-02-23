@@ -1,39 +1,75 @@
-.toolbar-btn {
-
-  color: white;
+/* Define o layout como uma coluna flexível que ocupa toda a altura da tela */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 450px;
+  min-height: 480px;
 }
 
-.sidenav-menu-btn {
-
-  color: white;
+/* Barra Superior com altura fixa de 44px */
+.top-bar {
+  height: 44px;
+  line-height: 44px; /* Centraliza verticalmente o conteúdo */
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap; /* Evita quebra de linha */
+  overflow: hidden; /* Garante que a barra não estoure */
+  margin: 5px 0;
 }
 
-.sidenav-btn {
-
-  color: white;
-  height: 50px;
+.p-toolbar-group-left, .p-toolbar-group-right {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente os itens */
 }
 
-.fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100% !important;
-  height: 64px !important;
+.p-toolbar-group-left > *, .p-toolbar-group-right > * {
+  margin: 0 4px; /* Espaçamento entre os elementos da barra superior */
 }
 
-.web-content {
-
-  height: calc(100% - 64px) !important;
+.app-title {
+  font-style: oblique;
+  font-variant: small-caps;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.mobile-content {
-
-  width: calc(100% - 65px) !important;
+/* Área de Conteúdo Principal ocupa o espaço restante */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  min-height: calc(100vh - 130px);
 }
 
-.sidenav-without-toolbar {
+/* Menu Inferior com altura fixa de 56px */
+.bottom-bar {
+  height: 56px;
+  line-height: 56px;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  /* background-color: var(--surface-b);  Use uma variável de cor do tema atual */
 
-  top: 64px;
+  .icon-button {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.p-toolbar-group-center {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente os itens */
+}
+
+.bottom-bar-button {
+  margin: 0 8px;
+}
+
+.icon-button {
+  width: 36px;
+  height: 36px;
 }

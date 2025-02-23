@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ThemeService } from './services/theme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,12 @@ export class AppComponent {
   sidebarVisible: boolean = false;
   isMobile: boolean = window.innerWidth <= 768;
 
+  private themes = ['rhea', 'mira', 'nano', 'soho-dark', 'soho-light', 'fluent-light', 'arya-blue', 'arya-orange', 'arya-green', 'arya-purple', 'md-light-indigo', 'md-dark-indigo', 'md-light-deeppurple', 'md-dark-deeppurple', 'viva-light', 'viva-dark', 'tailwind-light', 'saga-blue', 'saga-green', 'saga-orange', 'saga-purple', 'vela-blue', 'vela-green', 'vela-orange', 'vela-purple', 'aura-dark-amber', 'aura-dark-blue', 'aura-dark-cyan', 'aura-dark-green', 'aura-dark-indigo', 'aura-dark-lime', 'aura-dark-noir', 'aura-dark-pink', 'aura-dark-purple', 'aura-dark-teal', 'aura-light-amber', 'aura-light-blue', 'aura-light-cyan', 'aura-light-green', 'aura-light-indigo', 'aura-light-lime', 'aura-light-noir', 'aura-light-pink', 'aura-light-purple', 'aura-light-teal', 'nova-accent', 'nova-alt', 'nova', 'bootstrap4-dark-blue', 'bootstrap4-dark-purple', 'bootstrap4-light-blue', 'bootstrap4-light-purple', 'luna-amber', 'luna-blue', 'luna-green', 'luna-pink'];
+
+
   currentTheme: string = 'arya-blue';
 
-  constructor(private themeService: ThemeService, private messageService: MessageService) {
+  constructor(private themeService: ThemeService, private messageService: MessageService, private router: Router) {
 
     this._menuPosition = 'below';
 
@@ -51,11 +55,6 @@ export class AppComponent {
     return this._tooltipHideDelay;
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.isMobile = event.target.innerWidth <= 768;
-  }
-
   toggleSidebar() {
     this.sidebarVisible = !this.sidebarVisible;
   }
@@ -65,22 +64,14 @@ export class AppComponent {
   }
 
   toggleTheme() {
-    const themes = ['rhea', 'mira', 'nano', 'soho-dark', 'soho-light', 'fluent-light', 'arya-blue', 'arya-orange', 'arya-green', 'arya-purple', 'md-light-indigo', 'md-dark-indigo', 'md-light-deeppurple', 'md-dark-deeppurple', 'viva-light', 'viva-dark', 'tailwind-light', 'saga-blue', 'saga-green', 'saga-orange', 'saga-purple', 'vela-blue', 'vela-green', 'vela-orange', 'vela-purple', 'aura-dark-amber', 'aura-dark-blue', 'aura-dark-cyan', 'aura-dark-green', 'aura-dark-indigo', 'aura-dark-lime', 'aura-dark-noir', 'aura-dark-pink', 'aura-dark-purple', 'aura-dark-teal', 'aura-light-amber', 'aura-light-blue', 'aura-light-cyan', 'aura-light-green', 'aura-light-indigo', 'aura-light-lime', 'aura-light-noir', 'aura-light-pink', 'aura-light-purple', 'aura-light-teal', 'nova-accent', 'nova-alt', 'nova', 'bootstrap4-dark-blue', 'bootstrap4-dark-purple', 'bootstrap4-light-blue', 'bootstrap4-light-purple', 'luna-amber', 'luna-blue', 'luna-green', 'luna-pink'];
-    const currentIndex = themes.indexOf(this.currentTheme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    this.currentTheme = themes[nextIndex];
-    this.changeTheme(this.currentTheme);
 
-    this.messageService.add({severity:'success', summary:'Nome do novo tema:', detail: this.currentTheme});
-  }
+    const currentIndex = this.themes.indexOf(this.currentTheme);
+    const nextIndex = (currentIndex + 1) % this.themes.length;
+    this.currentTheme = this.themes[nextIndex];
 
-  changeTheme(theme: string) {
+    this.themeService.switchTheme(this.currentTheme);
 
-    this.themeService.switchTheme(theme);
-}
-
-  onClick() {
-
+    this.messageService.add({severity:'success', summary:'Nome do novo tema', detail: this.currentTheme});
   }
 
   sair() {
@@ -101,5 +92,18 @@ export class AppComponent {
 
   onSettingsClick() {
 
+  }
+
+  navigateToHome() {
+
+    this.router.navigate(['/home']);
+  }
+
+  navigateToTrain() {
+    this.router.navigate(['/train']);
+  }
+
+  navigateToTricks() {
+    this.router.navigate(['/tricks']);
   }
 }

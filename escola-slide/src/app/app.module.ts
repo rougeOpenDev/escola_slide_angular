@@ -27,6 +27,7 @@ import { UserCourseDetailsComponent } from './components/user-course-details/use
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { UserComponent } from './components/user/user.component';
+import { TricksLibComponent } from './components/tricks/tricks-lib/tricks-lib.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserComponent } from './components/user/user.component';
     UserComponent,
     UserCourseDetailsComponent,
     DestaqueInstaComponent,
-    TrainConfigComponent
+    TrainConfigComponent,
+    TricksLibComponent
   ],
   imports: [
     BrowserModule,

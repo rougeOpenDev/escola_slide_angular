@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class AppComponent {
 
   currentTheme: string = 'arya-blue';
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, private messageService: MessageService) {
 
     this._menuPosition = 'below';
 
@@ -69,6 +70,8 @@ export class AppComponent {
     const nextIndex = (currentIndex + 1) % themes.length;
     this.currentTheme = themes[nextIndex];
     this.changeTheme(this.currentTheme);
+
+    this.messageService.add({severity:'success', summary:'Nome do novo tema:', detail: this.currentTheme});
   }
 
   changeTheme(theme: string) {

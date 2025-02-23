@@ -13,14 +13,14 @@ import { MenuModule } from 'primeng/menu';
 import { PanelModule } from 'primeng/panel';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
-import { PrimeNGConfig } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { MessageService, PrimeNGConfig } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { DestaqueInstaComponent } from './components/home/destaque-insta/destaque-insta.component';
-import { TopPrincipalMenuComponent } from './components/navigation/top-principal-menu/top-principal-menu.component';
 import { StoreComponent } from './components/store/store.component';
 import { TrainConfigComponent } from './components/train/train-config/train-config.component';
 import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
@@ -38,7 +38,6 @@ import { UserComponent } from './components/user/user.component';
     StoreComponent,
     UserComponent,
     UserCourseDetailsComponent,
-    TopPrincipalMenuComponent,
     DestaqueInstaComponent,
     TrainConfigComponent
   ],
@@ -60,9 +59,10 @@ import { UserComponent } from './components/user/user.component';
     MenuModule,
     PanelModule,
     SidebarModule,
-    MenubarModule
+    MenubarModule,
+    ToastModule
   ],
-  providers: [PrimeNGConfig],
+  providers: [PrimeNGConfig, MessageService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

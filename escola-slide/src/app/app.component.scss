@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-width: 320px; /* Largura mínima */
-  min-height: 480px; /* Altura mínima */
+  min-width: 450px;
+  min-height: 480px;
 }
 
 /* Barra Superior com altura fixa de 44px */
@@ -17,6 +17,7 @@
   align-items: center;
   white-space: nowrap; /* Evita quebra de linha */
   overflow: hidden; /* Garante que a barra não estoure */
+  margin: 5px 0;
 }
 
 .p-toolbar-group-left, .p-toolbar-group-right {
@@ -40,16 +41,23 @@
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
-  min-height: calc(100vh - 100px); /* Altura mínima para o conteúdo principal */
+  min-height: calc(100vh - 130px);
 }
 
 /* Menu Inferior com altura fixa de 56px */
 .bottom-bar {
   height: 56px;
-  line-height: 56px; /* Centraliza verticalmente o conteúdo */
+  line-height: 56px;
   padding: 0 1rem;
   display: flex;
-  justify-content: center; /* Centraliza os botões horizontalmente */
+  justify-content: center;
+  margin: 10px 0;
+  /* background-color: var(--surface-b);  Use uma variável de cor do tema atual */
+
+  .icon-button {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 .p-toolbar-group-center {

@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "commit": "cz"
   },
   "private": true,
   "dependencies": {
@@ -23,8 +24,8 @@
     "@fortawesome/fontawesome-free": "^6.6.0",
     "echarts": "^5.5.0",
     "ngx-echarts": "^17.2.0",
-    "primeng": "^17.0.0",
     "primeicons": "^5.0.0",
+    "primeng": "^17.0.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.3",
     "zone.js": "^0.14.10"
@@ -37,6 +38,7 @@
     "@schematics/angular": "17.1.0",
     "@types/jasmine": "~5.1.4 ",
     "@types/node": "^20.14.8",
+    "commitizen": "^4.3.1",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
@@ -44,5 +46,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "typescript": "~5.3.0"
+  },
+  "config": {
+    "cz-customizable": {
+      "config": ".cz-config.js"
+    }
   }
 }

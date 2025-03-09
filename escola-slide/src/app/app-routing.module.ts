@@ -6,6 +6,9 @@ import { CoursesListComponent } from './components/courses-list/courses-list.com
 import { DestaqueInstaComponent } from './components/home/destaque-insta/destaque-insta.component';
 import { StoreComponent } from './components/store/store.component';
 import { TrainConfigComponent } from './components/train/train-config/train-config.component';
+import { TrainConfigSelectComponent } from './components/train/train-config-select/train-config-select.component';
+import { TrainConfigPropertiesComponent } from './components/train/train-config-properties/train-config-properties.component';
+import { TrainConfigCheckoutComponent } from './components/train/train-config-checkout/train-config-checkout.component';
 import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { UserComponent } from './components/user/user.component';
@@ -19,6 +22,18 @@ const routes: Routes = [
   {
     path: 'train',
     component: TrainConfigComponent,
+  },
+  {
+    path: 'train/select',
+    component: TrainConfigSelectComponent,
+  },
+  {
+    path: 'train/properties',
+    component: TrainConfigPropertiesComponent,
+  },
+  {
+    path: 'train/checkout',
+    component: TrainConfigCheckoutComponent,
   },
   {
     path: 'store',

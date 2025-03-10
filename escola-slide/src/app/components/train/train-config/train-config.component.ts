@@ -10,16 +10,16 @@ export class TrainConfigComponent {
   step: number;
 
   constructor(private trainConfigService: TrainConfigService) {
-    this.step = this.trainConfigService.getStep();
+    this.step = this.trainConfigService.step;
   }
 
   nextStep() {
-    this.trainConfigService.setStep(this.step + 1);
-    this.step = this.trainConfigService.getStep();
+    this.trainConfigService.step = this.step + 1;
+    this.step = this.trainConfigService.step;
   }
 
   previousStep() {
-    this.trainConfigService.setStep(this.step - 1);
-    this.step = this.trainConfigService.getStep();
+    this.trainConfigService.step = this.step - 1;
+    this.step = this.trainConfigService.step;
   }
 }

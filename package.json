@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@nebular/theme": "^15.0.0",
+    "primeng": "^19.0.9"
+  }
+}

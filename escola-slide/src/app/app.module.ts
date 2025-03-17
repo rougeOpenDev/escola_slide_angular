@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import {
+import { NbInputModule,
   NbActionsModule,
   NbButtonModule,
   NbCardModule,
@@ -69,7 +69,7 @@ import { UserComponent } from './components/user/user.component';
     NbCardModule,
     NbSelectModule,
     NbStepperModule,
-
+    NbInputModule,
     YouTubePlayerModule,
 
     NgxEchartsModule.forRoot({

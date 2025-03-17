@@ -9,6 +9,7 @@ import { TrainConfigComponent } from './components/train/train-config/train-conf
 import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { UserComponent } from './components/user/user.component';
+import { TricksLibComponent } from './components/tricks/tricks-lib/tricks-lib.component';
 
 const routes: Routes = [
   {
@@ -44,8 +45,8 @@ const routes: Routes = [
     component: UserComponent,
   },
   {
-    path: 'user/:user',
-    component: UserComponent,
+    path: 'tricks',
+    component: TricksLibComponent,
   },
   { path: '**', pathMatch: 'full', redirectTo: '/home' },
 ];

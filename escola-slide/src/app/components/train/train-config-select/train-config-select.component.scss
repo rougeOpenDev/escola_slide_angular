@@ -36,7 +36,9 @@
 }
 
 .manobra-card:hover {
-  background-color: #f9f9f9;
+
+  background-color: var(--highlight-bg);
+  color: var(--highlight-text-color);
 }
 
 .manobra-checkbox {
@@ -51,7 +53,6 @@
 }
 
 .selected-list {
-  background: #fafafa;
   padding: 0.5rem;
   border-radius: 4px;
 }

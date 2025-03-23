@@ -37,11 +37,11 @@
   </div>
 
   <!-- Lista de Manobras Selecionadas -->
+  <h3>Manobras Selecionadas ({{ selectedManobras.length }})</h3>
   <div class="selected-list">
-    <h3>Manobras Selecionadas ({{ selectedManobras.length }})</h3>
     <div class="selected-item" *ngFor="let sel of selectedManobras">
       <span>{{ sel.nome }}</span>
-      <button (click)="removeManobra(sel)">Remover</button>
+      <button (click)="removeManobra(sel)">X</button>
     </div>
   </div>
 

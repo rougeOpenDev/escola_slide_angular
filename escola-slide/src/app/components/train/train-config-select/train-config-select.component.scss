@@ -53,15 +53,20 @@
 }
 
 .selected-list {
-  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
   border-radius: 4px;
+  padding: 0;
 }
 
 .selected-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0.3rem 0;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .selected-item button {
@@ -69,6 +74,10 @@
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 0.3rem 0.6rem;
+  padding: 0.3rem;
   cursor: pointer;
+}
+
+h3 {
+  margin: 0;
 }

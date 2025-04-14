@@ -11,7 +11,7 @@ describe('TrainConfigComponent', () => {
       imports: [TrainConfigComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(TrainConfigComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { TrainConfigService } from '../../../services/train-config.service';
 
 @Component({
   selector: 'app-train-config',
   templateUrl: './train-config.component.html',
-  styleUrl: './train-config.component.scss'
+  styleUrls: ['./train-config.component.scss']
 })
 export class TrainConfigComponent {
+
   
   public manobras = { "manobras": [
       { "tipo": "vertical", "nome": "McTwist", "descricao": "Rotação de 540 graus no ar em uma rampa vertical." },
@@ -30,4 +32,21 @@ export class TrainConfigComponent {
     ]
   };
   
+
+  step: number;
+
+  constructor(private trainConfigService: TrainConfigService) {
+    this.step = this.trainConfigService.step;
+  }
+
+  nextStep() {
+    this.trainConfigService.step = this.step + 1;
+    this.step = this.trainConfigService.step;
+  }
+
+  previousStep() {
+    this.trainConfigService.step = this.step - 1;
+    this.step = this.trainConfigService.step;
+  }
+
 }

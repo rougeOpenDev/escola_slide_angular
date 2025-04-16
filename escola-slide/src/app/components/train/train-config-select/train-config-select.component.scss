@@ -33,12 +33,15 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .manobra-card:hover {
 
   background-color: var(--highlight-bg);
   color: var(--highlight-text-color);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .manobra-checkbox {
@@ -46,11 +49,30 @@
   margin-top: 0.4rem;
 }
 
-.manobra-info p {
-  margin: 0.2rem 0 0;
-  font-size: 0.9rem;
-  color: #666;
+// .manobra-info p {
+//   margin: 0.2rem 0 0;
+//   font-size: 0.9rem;
+//   color: #666;
+// }
+
+
+
+manobra-info strong {
+  font-size: 1.2rem;
+  color: #333;
 }
+
+.manobra-info h5 {
+  margin: 0.5rem 0;
+  font-weight: normal;
+  color: #555;
+}
+
+.manobra-info p {
+  margin: 0.25rem 0;
+  color: #777;
+}
+
 
 .selected-list {
   display: grid;

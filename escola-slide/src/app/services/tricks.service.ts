@@ -7,59 +7,62 @@ import { Manobra } from '../models/manobra';
 export class TricksService {
 
   private manobras: Manobra[] = [
-    { id: 1, nome: 'Ollie', descricao: 'Manobra básica de skate...' },
-    { id: 2, nome: 'Kickflip', descricao: 'Flip básico...' },
-    { id: 3, nome: 'Heelflip', descricao: 'Flip com o calcanhar...' },
-    { id: 4, nome: 'Pop Shove-it', descricao: 'Giro de 180 graus...' },
-    { id: 5, nome: 'Frontside 180', descricao: 'Giro de 180 graus para frente...' },
-    { id: 6, nome: 'Backside 180', descricao: 'Giro de 180 graus para trás...' },
-    { id: 7, nome: 'Varial Kickflip', descricao: 'Combinação de shove-it e kickflip...' },
-    { id: 8, nome: 'Hardflip', descricao: 'Combinação de frontside shove-it e kickflip...' },
-    { id: 9, nome: 'Inward Heelflip', descricao: 'Combinação de backside shove-it e heelflip...' },
-    { id: 10, nome: '360 Flip', descricao: 'Combinação de 360 shove-it e kickflip...' },
-    { id: 11, nome: 'Laser Flip', descricao: 'Combinação de 360 shove-it e heelflip...' },
-    { id: 12, nome: 'Bigspin', descricao: 'Giro de 360 graus com shove-it...' },
-    { id: 13, nome: 'Impossible', descricao: 'Giro completo da prancha ao redor do pé...' },
-    { id: 14, nome: 'No Comply', descricao: 'Manobra feita sem um dos pés na prancha...' },
-    { id: 15, nome: 'Boneless', descricao: 'Manobra feita segurando a prancha com a mão...' },
-    { id: 16, nome: 'Manual', descricao: 'Equilíbrio em duas rodas...' },
-    { id: 17, nome: 'Nose Manual', descricao: 'Equilíbrio em duas rodas na parte frontal...' },
-    { id: 18, nome: 'Smith Grind', descricao: 'Grind com a parte traseira da prancha...' },
-    { id: 19, nome: 'Feeble Grind', descricao: 'Grind com a parte traseira da prancha e o eixo dianteiro...' },
-    { id: 20, nome: '50-50 Grind', descricao: 'Grind com ambos os eixos...' },
-    { id: 21, nome: '5-0 Grind', descricao: 'Grind com o eixo traseiro...' },
-    { id: 22, nome: 'Nose Grind', descricao: 'Grind com o eixo dianteiro...' },
-    { id: 23, nome: 'Crooked Grind', descricao: 'Grind com o eixo dianteiro em ângulo...' },
-    { id: 24, nome: 'Overcrook Grind', descricao: 'Grind com o eixo dianteiro em ângulo extremo...' },
-    { id: 25, nome: 'Bluntslide', descricao: 'Slide com a parte traseira da prancha...' },
-    { id: 26, nome: 'Noseslide', descricao: 'Slide com a parte frontal da prancha...' },
-    { id: 27, nome: 'Tailslide', descricao: 'Slide com a parte traseira da prancha...' },
-    { id: 28, nome: 'Boardslide', descricao: 'Slide com a parte central da prancha...' },
-    { id: 29, nome: 'Lipslide', descricao: 'Slide com a parte central da prancha após um ollie...' },
-    { id: 30, nome: 'Darkslide', descricao: 'Slide com a parte de baixo da prancha...' },
-    { id: 31, nome: 'Casper Flip', descricao: 'Flip com a prancha de cabeça para baixo...' },
-    { id: 32, nome: 'Primo Slide', descricao: 'Slide com a prancha de lado...' },
-    { id: 33, nome: 'Primo Flip', descricao: 'Flip com a prancha de lado...' },
-    { id: 34, nome: 'Hospital Flip', descricao: 'Combinação de kickflip e casper flip...' },
-    { id: 35, nome: 'Dragon Flip', descricao: 'Combinação de 360 flip e casper flip...' },
-    { id: 36, nome: 'Gazelle Flip', descricao: 'Combinação de 540 shove-it e kickflip...' },
-    { id: 37, nome: 'Bigflip', descricao: 'Combinação de bigspin e kickflip...' },
-    { id: 38, nome: 'Bigheel', descricao: 'Combinação de bigspin e heelflip...' },
-    { id: 39, nome: 'Double Kickflip', descricao: 'Dois kickflips em um salto...' },
-    { id: 40, nome: 'Double Heelflip', descricao: 'Dois heelflips em um salto...' },
-    { id: 41, nome: 'Triple Kickflip', descricao: 'Três kickflips em um salto...' },
-    { id: 42, nome: 'Triple Heelflip', descricao: 'Três heelflips em um salto...' },
-    { id: 43, nome: 'Quad Kickflip', descricao: 'Quatro kickflips em um salto...' },
-    { id: 44, nome: 'Quad Heelflip', descricao: 'Quatro heelflips em um salto...' },
-    { id: 45, nome: 'Pressure Flip', descricao: 'Flip usando pressão dos pés...' },
-    { id: 46, nome: 'Underflip', descricao: 'Flip feito com a parte de baixo da prancha...' },
-    { id: 47, nome: 'Late Flip', descricao: 'Flip feito no final do salto...' },
-    { id: 48, nome: 'Late Shove-it', descricao: 'Shove-it feito no final do salto...' },
-    { id: 49, nome: 'Late Kickflip', descricao: 'Kickflip feito no final do salto...' },
-    { id: 50, nome: 'Late Heelflip', descricao: 'Heelflip feito no final do salto...' }
+    { id: 1, tipo: ["vertical"], base: ["base", "fakie", "switch"], nome: "McTwist", descricao: "Rotação de 540 graus no ar em uma rampa vertical." },
+    { id: 2, tipo: ["vertical"], base: ["base", "fakie"], nome: "Indy Grab", descricao: "Segurar o shape com a mão traseira enquanto está no ar." },
+    { id: 3, tipo: ["vertical"], base: ["base", "switch"], nome: "Mute Grab", descricao: "Segurar o shape com a mão dianteira entre os pés." },
+    { id: 4, tipo: ["vertical"], base: ["base"], nome: "Lien Air", descricao: "Indy Grab com rotação frontal de 180°." },
+    { id: 5, tipo: ["vertical"], base: ["base", "switch"], nome: "Stalefish", descricao: "Segurar o shape atrás do pé traseiro com a mão traseira." },
+    { id: 6, tipo: ["vertical"], base: ["base"], nome: "Japan Air", descricao: "Segurar o shape com a mão dianteira e flexionar as pernas." },
+    { id: 7, tipo: ["vertical"], base: ["base"], nome: "Christ Air", descricao: "Largar o skate no ar e abrir os braços como uma cruz." },
+    { id: 8, tipo: ["vertical"], base: ["base"], nome: "540", descricao: "Girar 540° no ar antes de pousar." },
+    { id: 9, tipo: ["vertical"], base: ["base"], nome: "720", descricao: "Girar 720° no ar antes de pousar." },
+    { id: 10, tipo: ["vertical"], base: ["base"], nome: "900", descricao: "Girar 900° no ar antes de pousar." },
+    { id: 11, tipo: ["vertical"], base: ["base"], nome: "1080", descricao: "Girar 1080° no ar antes de pousar." },
+    { id: 12, tipo: ["borda"], base: ["base", "fakie"], nome: "Nosegrind", descricao: "Deslizar sobre a borda apoiado apenas no truck dianteiro." },
+    { id: 13, tipo: ["borda"], base: ["base", "switch"], nome: "5-0 Grind", descricao: "Deslizar sobre a borda apoiado apenas no truck traseiro." },
+    { id: 14, tipo: ["borda"], base: ["base"], nome: "Smith Grind", descricao: "Deslizar com o truck traseiro na borda enquanto o dianteiro fica do lado oposto." },
+    { id: 15, tipo: ["borda"], base: ["base"], nome: "Feeble Grind", descricao: "Deslizar com o truck traseiro enquanto o shape cruza a borda." },
+    { id: 16, tipo: ["borda", "corrimão"], base: ["base", "switch"], nome: "Crooked Grind", descricao: "Deslizar apenas com o truck dianteiro inclinado na borda." },
+    { id: 17, tipo: ["borda", "corrimão"], base: ["base", "switch"], nome: "Noseslide", descricao: "Deslizar com a parte frontal do shape sobre a borda ou corrimão." },
+    { id: 18, tipo: ["borda", "corrimão"], base: ["base", "switch"], nome: "Tailslide", descricao: "Deslizar com a parte traseira do shape sobre a borda ou corrimão." },
+    { id: 19, tipo: ["solo"], base: ["base", "switch", "fakie"], nome: "Ollie", descricao: "Pulo básico onde o skatista levanta o shape sem usar as mãos." },
+    { id: 20, tipo: ["solo"], base: ["base", "switch", "fakie"], nome: "Kickflip", descricao: "O skate gira em torno do seu eixo horizontal enquanto o skatista pula." },
+    { id: 21, tipo: ["solo"], base: ["base", "switch", "fakie"], nome: "Heelflip", descricao: "Versão do Kickflip, mas o skate gira para o lado contrário com o calcanhar." },
+    { id: 22, tipo: ["solo"], base: ["base", "switch"], nome: "Hardflip", descricao: "Combinação de Kickflip com um Frontside Pop Shove-it." },
+    { id: 23, tipo: ["solo"], base: ["base", "switch"], nome: "Varial Kickflip", descricao: "Combinação de Kickflip com um Pop Shove-it." },
+    { id: 24, tipo: ["solo"], base: ["base", "switch"], nome: "360 Flip", descricao: "O skate faz um Kickflip enquanto gira 360° no ar." },
+    { id: 25, tipo: ["solo"], base: ["base", "switch"], nome: "Bigspin", descricao: "Combinação de 360 Pop Shove-it com rotação do corpo de 180°." },
+    { id: 26, tipo: ["solo"], base: ["base", "switch"], nome: "Laser Flip", descricao: "Combinação de Heelflip com um 360 Shove-it." },
+    { id: 27, tipo: ["solo"], base: ["base", "switch"], nome: "Pressure Flip", descricao: "Flip feito apenas com pressão dos pés sem uso do pop." },
+    { id: 28, tipo: ["solo"], base: ["base", "switch"], nome: "Impossible", descricao: "O skate gira verticalmente ao redor do pé traseiro." },
+    { id: 29, tipo: ["solo"], base: ["base", "switch", "fakie"], nome: "Shove-it", descricao: "O skate gira 180° sem girar no eixo horizontal." },
+    { id: 30, tipo: ["solo"], base: ["base", "switch", "fakie"], nome: "Pop Shove-it", descricao: "Versão mais alta do Shove-it, com um pop na execução." },
+    { id: 31, tipo: ["solo"], base: ["base", "switch"], nome: "No Comply", descricao: "Tirar o pé dianteiro do skate e bater o tail para fazê-lo girar." },
+    { id: 32, tipo: ["solo"], base: ["base", "switch"], nome: "Darkslide", descricao: "Deslizar de cabeça para baixo, com o grip tape virado para baixo." }
   ];
 
+  filtrarManobras(termo: string):Manobra[]{
+    const resultado = this.manobras.filter((manobra)=>manobra.nome.toLowerCase().includes(termo.toLowerCase()) || manobra.descricao.toLowerCase().includes(termo.toLowerCase()) || manobra.tipo.some((tipo)=> tipo.toLowerCase().includes(termo.toLowerCase())) || manobra.base.some((base)=> base.toLowerCase().includes(termo.toLowerCase()))
+  );
+
+  if(resultado.length === 0 ){
+    return[
+      {
+        id: 0,
+        nome: "Não listado",
+        descricao: "Nenhuma manobra encontrada.",
+        tipo: ["-"],
+        base: ["-"]
+      }
+    ]
+  }
+  return resultado
+  }
   getManobras(): Manobra[] {
     return this.manobras;
+  }
+
+  getManobrasById(id:number): Manobra | undefined {
+    return this.manobras.find(manobra => manobra.id == id)
   }
 }

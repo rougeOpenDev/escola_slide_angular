@@ -30,11 +30,7 @@ export class TrainConfigSelectComponent {
   }
 
   onSearchChange(): void {
-    const term = this.searchTerm.toLowerCase();
-    this.filteredManobras = this.manobras.filter(m =>
-      m.nome.toLowerCase().includes(term) ||
-      m.descricao.toLowerCase().includes(term)
-    );
+    this.filteredManobras = this.tricksService.filtrarManobras(this.searchTerm);
   }
 
   isSelected(manobra: Manobra): boolean {

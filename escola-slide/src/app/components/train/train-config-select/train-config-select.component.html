@@ -20,7 +20,9 @@
       (click)="toggleManobra(manobra)"
     >
       <!-- Checkbox ou ícone de seleção -->
+
       <input
+      placeholder="Pesquisa"
         type="checkbox"
         class="manobra-checkbox"
         [checked]="isSelected(manobra)"
@@ -31,7 +33,9 @@
       <!-- Informações da Manobra -->
       <div class="manobra-info">
         <strong>{{ manobra.nome }}</strong>
-        <p>{{ manobra.descricao }}</p>
+        <h5>{{ manobra.descricao }}</h5>
+        <p>{{ manobra.tipo }}</p>
+        <p>{{ manobra.base}}</p>
       </div>
     </div>
   </div>

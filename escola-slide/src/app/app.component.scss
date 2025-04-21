@@ -39,8 +39,8 @@
 /* Área de Conteúdo Principal ocupa o espaço restante */
 .main-content {
   flex: 1;
-  overflow-y: auto;
-  padding: 1rem;
+  overflow-y: hidden;
+  padding: 0 1rem;
   min-height: calc(100vh - 130px);
 }
 

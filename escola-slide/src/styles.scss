@@ -21,6 +21,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.p-card-content {
+  padding: 0;
+}
+
+.p-card-body {
+
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 0;
+}
+
 .destaque-card {
 
   display: flex;

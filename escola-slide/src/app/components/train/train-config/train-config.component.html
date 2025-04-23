@@ -1,15 +1,11 @@
+
 <!--
 <nb-card>
   <nb-card-body>
     <nb-stepper orientation="horizontal">
       <nb-step [label]="labelOne">
         <ng-template #labelOne>First step</ng-template>
-        <h4>Step content #1</h4>
-        <p class="lorem">
-          Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down.
-          Nullizzle sapien velizzle, my shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up,
-          gravida vizzle, dang.
-        </p>
+        <h4>manobras da semana</h4>
         <button nbButton disabled nbStepperNext>prev</button>
         <button nbButton nbStepperNext>next</button>
       </nb-step>
@@ -49,3 +45,25 @@
   </nb-card-body>
 </nb-card>
 -->
+
+<p-card class="destaque-card">
+
+  <p-card-header>
+    <h1 class="titulo-card">Novo Treino</h1>
+  </p-card-header>
+
+  <p-card-body>
+
+    <app-train-config-select *ngIf="step === 1"></app-train-config-select>
+    <app-train-config-properties *ngIf="step === 2"></app-train-config-properties>
+    <app-train-config-checkout *ngIf="step === 3"></app-train-config-checkout>
+
+  </p-card-body>
+
+  <p-card-footer class="navigation-buttons" >
+    <button (click)="previousStep()" [disabled]="step === 1">Voltar</button>
+    <button (click)="nextStep()" [disabled]="step === 3">Próximo</button>
+  </p-card-footer>
+
+</p-card>
+

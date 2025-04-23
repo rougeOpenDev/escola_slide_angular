@@ -1,0 +1,52 @@
+<div class="wizard-step">
+  <!-- Título da Tela -->
+  <h2 class="titulo-card" >Treinar &gt; Selecionar Manobras</h2>
+
+  <!-- Barra de Pesquisa -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Pesquisar manobras..."
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange()"
+    />
+  </div>
+
+  <!-- Grid de Manobras -->
+  <div class="manobras-grid">
+    <div
+      class="manobra-card"
+      *ngFor="let manobra of filteredManobras"
+      (click)="toggleManobra(manobra)"
+    >
+      <!-- Checkbox ou ícone de seleção -->
+
+      <input
+      placeholder="Pesquisa"
+        type="checkbox"
+        class="manobra-checkbox"
+        [checked]="isSelected(manobra)"
+        (click)="$event.stopPropagation()"
+        (change)="toggleManobra(manobra)"
+      />
+
+      <!-- Informações da Manobra -->
+      <div class="manobra-info">
+        <strong>{{ manobra.nome }}</strong>
+        <h5>{{ manobra.descricao }}</h5>
+        <p>{{ manobra.tipo }}</p>
+        <p>{{ manobra.base}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lista de Manobras Selecionadas -->
+  <h3>Manobras Selecionadas ({{ selectedManobras.length }})</h3>
+  <div class="selected-list">
+    <div class="selected-item" *ngFor="let sel of selectedManobras">
+      <span>{{ sel.nome }}</span>
+      <button (click)="removeManobra(sel)">X</button>
+    </div>
+  </div>
+
+</div>

@@ -4,16 +4,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbInputModule,
+  NbActionsModule,
+  NbButtonModule,
+  NbCardModule,
+  NbIconModule,
+  NbLayoutModule,
+  NbMenuModule,
+  NbSelectModule,
+  NbSidebarModule,
+  NbStepperModule,
+  NbThemeModule,
+  NbUserModule,
+} from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
-import { CardModule } from 'primeng/card';
-import { StepsModule } from 'primeng/steps';
-import { MenuModule } from 'primeng/menu';
-import { PanelModule } from 'primeng/panel';
-import { SidebarModule } from 'primeng/sidebar';
-import { MenubarModule } from 'primeng/menubar';
-import { ToastModule } from 'primeng/toast';
 import { MessageService, PrimeNGConfig } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +28,9 @@ import { CoursesListComponent } from './components/courses-list/courses-list.com
 import { DestaqueInstaComponent } from './components/home/destaque-insta/destaque-insta.component';
 import { StoreComponent } from './components/store/store.component';
 import { TrainConfigComponent } from './components/train/train-config/train-config.component';
+import { TrainConfigSelectComponent } from './components/train/train-config-select/train-config-select.component';
+import { TrainConfigPropertiesComponent } from './components/train/train-config-properties/train-config-properties.component';
+import { TrainConfigCheckoutComponent } from './components/train/train-config-checkout/train-config-checkout.component';
 import { UserCourseDetailsComponent } from './components/user-course-details/user-course-details.component';
 import { UserCoursesListComponent } from './components/user-courses-list/user-courses-list.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
@@ -41,6 +49,9 @@ import { TricksLibComponent } from './components/tricks/tricks-lib/tricks-lib.co
     UserCourseDetailsComponent,
     DestaqueInstaComponent,
     TrainConfigComponent,
+    TrainConfigSelectComponent,
+    TrainConfigPropertiesComponent,
+    TrainConfigCheckoutComponent,
     TricksLibComponent
   ],
   imports: [
@@ -50,26 +61,31 @@ import { TricksLibComponent } from './components/tricks/tricks-lib/tricks-lib.co
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NbThemeModule.forRoot({ name: 'cosmic' }),
+    NbLayoutModule,
+    NbButtonModule,
+    NbSidebarModule.forRoot(),
+    NbActionsModule,
+    NbMenuModule.forRoot(),  
+    NbIconModule,
+    NbUserModule,
+    NbEvaIconsModule,
+    NbCardModule,
+    NbSelectModule,
+    NbStepperModule,
+    NbInputModule,
     YouTubePlayerModule,
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')
-    }),
-    ButtonModule,
-    TableModule,
-    CardModule,
-    StepsModule,
-    MenuModule,
-    PanelModule,
-    SidebarModule,
-    MenubarModule,
-    ToastModule
+    NgxEchartsModule,
   ],
-  providers: [PrimeNGConfig, MessageService],
+  providers: [
+    PrimeNGConfig, // Mantenha o PrimeNGConfig no array de providers
+    MessageService,
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
   constructor(private primengConfig: PrimeNGConfig) {
-    this.primengConfig.ripple = true;
+    this.primengConfig.ripplae = true; // Aqui estamos configurando a opção ripple
   }
 }
